@@ -385,7 +385,16 @@ Sample json here, crypto-crypto example 1,conductorIndicator is 1 and onbehalfIn
              "platformToClientSendingWallet":"0x780bb33836f0bdec4138c39348979eec739757d6",
              "platformToClientReceivingWallet":"0xedac0397ceded9abfbd70ba7625db03067e9cb0c",
              "counterCurrency":"USDC",
-             "counterCurrencyAmount":"61215.320000",
+             "counterCurrencyAmount":"31215.320000",
+             "counterCurrencyCanadianExchangeRate":"1.0000000000"
+       },
+       {
+             "dispositionTypeCode":17,
+             "platformToClientHash":"0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d24987",
+             "platformToClientSendingWallet":"0x780bb33836f0bdec4138c39348979eec739757d6",
+             "platformToClientReceivingWallet":"0xedac0397ceded9abfbd70ba7625db03067e9cb0c",
+             "counterCurrency":"USDC",
+             "counterCurrencyAmount":"30000.000000",
              "counterCurrencyCanadianExchangeRate":"1.0000000000"
        }
     ],
