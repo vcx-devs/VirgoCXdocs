@@ -96,15 +96,15 @@
 | countryCode                            | String  | Country Abbr               | Required | CA                        || 
 | provinceCode                           | String  | Province Abbr              | Optional | ON                        | Country code is MX/US/CA,must provide this field                                                                     | 
 | postalCode                             | String  | Postal Code                | Required | A1E4S2                    | A1E4S2(CA)/60606(US)                                                                                                 | 
-| telephoneNumber                        | String  | Phone/Primary Phone        | Required | 3128786784                || 
+| telephoneNumber                        | String  | Phone                      | Required | 3128786784                || 
 | registrationNumber                     | String  | Register Number            | Required | ON51222012                ||
 | registrationJurisdictionCountryCode    | String  | Registration Country Abbr  | Required | CA                        || 
 | registrationJurisdictionProvinceCode   | String  | Registration Province Abbr | Optional | ON                        | Registration Country Abbr is MX/US/CA,must provide this field                                                        | 
 | identificationType                     | String  | Identification Type        | Required | ANNUAL_REPORT             | Use the value in the name column of Entity Id type,if choose last one, provide the type name with ALL capital letter | 
-| identificationNumber                   | String  | Identification Number      | Required ||| 
+| identificationNumber                   | String  | Registration Number        | Required ||| 
 | identificationJurisdictionCountryCode  | String  | Jurisdiction Country Abbr  | Required | CA                        ||
 | identificationJurisdictionProvinceCode | String  | Jurisdiction Province Abbr | Optional | ON                        | Jurisdiction Province Abbr is MX/US/CA,must provide this field                                                       |
-| transactionPurpose                     | String  | Purpose/Other Purpose      | Required | OTC Trading/Market making | If the value of 'Purpose of Account' is other,provide the value of 'Other purposes'                                  |
+| transactionPurpose                     | String  | Transaction Purpose        | Required | OTC Trading/Market making | If the value of 'Purpose of Account' is other,provide the value of 'Other purposes'                                  |
 
 
 
@@ -203,7 +203,7 @@ Sample json here...
 | countryCode                            | String  | Country Abbr                  | Required | CA                        |                                                                                     | 
 | provinceCode                           | String  | Province Abbr                 | Optional | ON                        | Country Abbr is MX/US/CA,must provide this field                                    | 
 | postalCode                             | String  | Postal Code                   | Required | A1E4S2                    | US version:60606,5 numbers is ok                                                    | 
-| telephoneNumber                        | String  | Phone/Primary Phone           | Required | 41612345678               |                                                                                     | 
+| telephoneNumber                        | String  | Phone                         | Required | 41612345678               |                                                                                     | 
 | birthDate                              | String  | Date of birth                 | Required | 1989-02-23                |                                                                                     |
 | residenceCountryCode                   | String  | Country of residence Abbr     | Required | CA                        |                                                                                     |
 | occupation                             | String  | Title/Role                    | Required | Project manager           |                                                                                     |
@@ -211,7 +211,7 @@ Sample json here...
 | identificationNumber                   | String  | ID Number                     | Required | G520123456                |                                                                                     |
 | identificationJurisdictionCountryCode  | String  | ID Jurisdiction Country Abbr  | Required | CA                        |                                                                                     |
 | identificationJurisdictionProvinceCode | String  | ID Jurisdiction Province Abbr | Optional | ON                        | If ID Jurisdiction Country Abbr is MX/US/CA,must provide this field                 |
-| transactionPurpose                     | String  | Purpose/Other Purpose         | Required | OTC Trading/Market making | If the value of 'Purpose of Account' is other,provide the value of 'Other purposes' |
+| transactionPurpose                     | String  | Transaction Purpose           | Required | OTC Trading/Market making | If the value of 'Purpose of Account' is other,provide the value of 'Other purposes' |
 
 
 <br>
@@ -260,44 +260,44 @@ Sample json here...
 
 #### DATA:
 
-| Name                             | Type      | Salesforce Key                     | Required | Example                                                              | Description                               |
-|----------------------------------|-----------|------------------------------------|----------|----------------------------------------------------------------------|-------------------------------------------|
-| otcAccountNumber                 | String    | OTC Account #                      | Required | "C1234"                                                              |                                           |
-| transactionId                    | String    | TransactionID                      | Required | "C1433"                                                              |                                           |
-| transactionTypeCode              | Integer   | Method of Transaction Abbr         | Required | 8                                                                    |                                           |
-| clientToPlatformHash             | String    | Client to virgocx transaction hash | Required | "0x678011e2833e24628dcc58213fa176a2069607853a74d627a24ca05351d1a818" |                                           |
-| clientToPlatformSendingWallet    | String    | Client to virgocx Sending Wallet   | Required | "0xeadc0397ceded9abfbd70ba7625db03067e9cb0c"                         |                                           |
-| clientToPlatformReceivingWallet  | String    | Client to virgocx Receiving Wallet | Required | "0x780Bb33836f0DeC4138c39348979EEC739757D6"                          |                                           |
-| conductorIndicator               | Integer   | conductorIndicator                 | Required | 0                                                                    | 0 false, 1 true                           |
-| onBehalfIndicator                | Integer   | onBehalfIndicator                  | Required | 0                                                                    | 0 false, 1 true                           |
-| baseCurrency                     | String    | Base Currency                      | Required | "USDT"                                                               |                                           |
-| qty                              | String    | Base Currency Amount               | Required | "61215.320000"                                                       |                                           |
-| baseCurrencyCanadianExchangeRate | String    | Current Crypto Price               | Required | "1.3236000000"                                                       |                                           |
-| totalValueInCad                  | String    | Value in CAD                       | Required | "81024.600000"                                                       |                                           |
-| otcRechargeCompleteActionsList   | JsonArray |                                    | Required | [{}]                                                                 | See CompleteAction table below            |
-| otcOriginatorInfo                | JsonArray |                                    | Optional | [{}],if conductorIndicator value is 1, must provide this arrayList   | See otcOriginatorInfo table below         |
-| otcOriginatorBehalfInfo          | JsonArray |                                    | Optional | [{}],if onBehalfIndicator value is 1, must provide this arrayList    | See otcOriginatorBehalfInfo table below   |
+| Name                             | Type      | Salesforce Key             | Required | Example                                                              | Description                               |
+|----------------------------------|-----------|----------------------------|----------|----------------------------------------------------------------------|-------------------------------------------|
+| otcAccountNumber                 | String    | OTC Account #              | Required | "C1234"                                                              |                                           |
+| transactionId                    | String    | TransactionID              | Required | "C1433"                                                              |                                           |
+| transactionTypeCode              | Integer   | Method of Transaction Abbr | Required | 8                                                                    |                                           |
+| clientToPlatformHash             | String    | Transaction hash           | Required | "0x678011e2833e24628dcc58213fa176a2069607853a74d627a24ca05351d1a818" |                                           |
+| clientToPlatformSendingWallet    | String    | Address                    | Required | "0xeadc0397ceded9abfbd70ba7625db03067e9cb0c"                         |                                           |
+| clientToPlatformReceivingWallet  | String    | Address                    | Required | "0x780Bb33836f0DeC4138c39348979EEC739757D6"                          |                                           |
+| conductorIndicator               | Integer   | conductorIndicator         | Required | 0                                                                    | 0 false, 1 true                           |
+| onBehalfIndicator                | Integer   | onBehalfIndicator          | Required | 0                                                                    | 0 false, 1 true                           |
+| baseCurrency                     | String    | Digital Currency           | Required | "USDT"                                                               |                                           |
+| qty                              | String    | Total Crypto Amount        | Required | "61215.320000"                                                       |                                           |
+| baseCurrencyCanadianExchangeRate | String    | Price Per Token            | Required | "1.3236000000"                                                       |                                           |
+| totalValueInCad                  | String    | Value in CAD               | Required | "81024.600000"                                                       |                                           |
+| otcRechargeCompleteActionsList   | JsonArray |                            | Required | [{}]                                                                 | See CompleteAction table below            |
+| otcOriginatorInfo                | JsonArray |                            | Optional | [{}],if conductorIndicator value is 1, must provide this arrayList   | See otcOriginatorInfo table below         |
+| otcOriginatorBehalfInfo          | JsonArray |                            | Optional | [{}],if onBehalfIndicator value is 1, must provide this arrayList    | See otcOriginatorBehalfInfo table below   |
 
 
 #### CompleteAction
 
-| Name                                | Type    | Salesforce Key                     | Crypto   | Fiat     | Example                                                              | Description                                           |
-|-------------------------------------|---------|------------------------------------|----------|----------|----------------------------------------------------------------------|-------------------------------------------------------|
-| dispositionTypeCode                 | Integer |                                    | Required | Required | 17                                                                   | See table provide above                               |
-| dispositionTypeOther                | String  |                                    | Optional | Optional | "Test Case"                                                          | If dispositionTypeCode is 11, must provide this value |
-| platformToClientHash                | String  | Virgocx to Client Transaction Hash | Required | NO       | "0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d2468c" |                                                       |
-| platformToClientSendingWallet       | String  | Virgocx to Client Sending Wallet   | Required | NO       | "0x780bb33836f0bdec4138c39348979eec739757d6"                         |                                                       |
-| platformToClientReceivingWallet     | String  | Virgocx to Client Receiving Wallet | Required | NO       | "0xedac0397ceded9abfbd70ba7625db03067e9cb0c"                         |                                                       |
-| counterCurrency                     | String  | Counter Currency                   | Required | NO       | "USDC"                                                               |                                                       |
-| counterCurrencyAmount               | String  | Counter Currency Amount            | Required | NO       | "61215.320000",                                                      |                                                       |
-| counterCurrencyCanadianExchangeRate | String  | Price per token                    | Required | NO       | "1.0000000000"                                                       |                                                       |
-| financialInstitutionNumber          | String  | Institution Number                 | NO       | Required | "004"                                                                |                                                       |
-| branchNumber                        | String  | Transit Number                     | NO       | Required | "13282"                                                              |                                                       |
-| accountNumber                       | String  | Account Number                     | NO       | Required | "6119164"                                                            |                                                       |
-| accountCurrencyTypeCode             | String  | accountCurrencyTypeCode            | NO       | Required | "CAD"/"USD"/"EUR"                                                    |                                                       |
-| accountTypeCode                     | Integer |                                    | NO       | Required | 1                                                                    | 1 Personal 2 Business 3 Trust 5 Casino 4 Other        |
-| accountTypeOther                    | String  |                                    | NO       | Optional | "Corporate"                                                          | If type code is 4, must provide this value            |  
-| fiatCurrency                        | String  | Fiat Currency                      | NO       | Required | "CAD"                                                                |                                                       |
+| Name                                | Type    | Salesforce Key          | Crypto   | Fiat     | Example                                                              | Description                                           |
+|-------------------------------------|---------|-------------------------|----------|----------|----------------------------------------------------------------------|-------------------------------------------------------|
+| dispositionTypeCode                 | Integer |                         | Required | Required | 17                                                                   | See table provide above                               |
+| dispositionTypeOther                | String  |                         | Optional | Optional | "Test Case"                                                          | If dispositionTypeCode is 11, must provide this value |
+| platformToClientHash                | String  | Transaction Hash        | Required | NO       | "0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d2468c" |                                                       |
+| platformToClientSendingWallet       | String  | Address                 | Required | NO       | "0x780bb33836f0bdec4138c39348979eec739757d6"                         |                                                       |
+| platformToClientReceivingWallet     | String  | Address                 | Required | NO       | "0xedac0397ceded9abfbd70ba7625db03067e9cb0c"                         |                                                       |
+| counterCurrency                     | String  | Counter Currency        | Required | NO       | "USDC"                                                               |                                                       |
+| counterCurrencyAmount               | String  | Counter Currency Amount | Required | NO       | "61215.320000",                                                      |                                                       |
+| counterCurrencyCanadianExchangeRate | String  | Current crypto price    | Required | NO       | "1.0000000000"                                                       |                                                       |
+| financialInstitutionNumber          | String  | Institution Number      | NO       | Required | "004"                                                                |                                                       |
+| branchNumber                        | String  | Transit Number          | NO       | Required | "13282"                                                              |                                                       |
+| accountNumber                       | String  | Account Number          | NO       | Required | "6119164"                                                            |                                                       |
+| accountCurrencyTypeCode             | String  | Fiat Currency           | NO       | Required | "CAD"/"USD"/"EUR"                                                    |                                                       |
+| accountTypeCode                     | Integer |                         | NO       | Required | 1                                                                    | 1 Personal 2 Business 3 Trust 5 Casino 4 Other        |
+| accountTypeOther                    | String  |                         | NO       | Optional | "Corporate"                                                          | If type code is 4, must provide this value            |  
+| fiatCurrency                        | String  | Fiat Currency           | NO       | Required | "CAD"                                                                |                                                       |
 
 
 #### otcOriginatorInfo
@@ -318,7 +318,7 @@ Sample json here...
 | countryCode                            | String  | Country Abbr                  | Required   | Required  | "CA"                                 |                                                                     |
 | province                               | String  | Province Abbr                 | Optional   | Optional  | "ON"                                 | Country Abbr is MX/US/CA,must provide this field                    |
 | postalCode                             | String  | Postal Code                   | Required   | Required  | "A1E4S2"                             | US version:60606,5 numbers is ok                                    |
-| telephoneNumber                        | String  | Phone/Primary Phone           | Required   | Required  | "41612345678"                        |                                                                     |
+| telephoneNumber                        | String  | Phone                         | Required   | Required  | "41612345678"                        |                                                                     |
 | birthday                               | String  | Date of birth                 | Required   | NO        | "1989-02-23"                         |                                                                     |
 | residenceCountryCode                   | String  | Country of residence Abbr     | Required   | NO        | "CA"                                 |                                                                     |
 | occupation                             | String  | Title/Role                    | Required   | NO        | "Project manager"                    |                                                                     |
@@ -348,7 +348,7 @@ Sample json here...
 | countryCode                            | String  | Country Abbr                  | Required   | Required  | "CA"                                 |                                                                                                                                                                                    |
 | province                               | String  | Province Abbr                 | Optional   | Optional  | "ON"                                 | Country Abbr is MX/US/CA,must provide this field                                                                                                                                   |
 | postalCode                             | String  | Postal Code                   | Required   | Required  | "A1E4S2"                             | US version:60606,5 numbers is ok                                                                                                                                                   |
-| telephoneNumber                        | String  | Phone/Primary Phone           | Required   | Required  | "41612345678"                        |                                                                                                                                                                                    |
+| telephoneNumber                        | String  | Phone                         | Required   | Required  | "41612345678"                        |                                                                                                                                                                                    |
 | birthday                               | String  | Date of birth                 | Required   | NO        | "1989-02-23"                         |                                                                                                                                                                                    |
 | residenceCountryCode                   | String  | Country of residence Abbr     | Required   | NO        | "CA"                                 |                                                                                                                                                                                    |
 | occupation                             | String  | Title/Role                    | Required   | NO        | "Project manager"                    |                                                                                                                                                                                    |
