@@ -76,7 +76,7 @@
 <br>
 
 #### URL:
-> wordpress.virgocx.org/otcInfo/saveMemberInfo/corporate  
+> 8.214.40.136:8083/otcInfo/saveMemberInfo/corporate  
 
 #### METHOD:
 > POST 
@@ -142,7 +142,7 @@ Sample json here...
 <br>
 
 #### URL:
-> wordpress.virgocx.org/otcInfo/saveEntityInfo/entityPerson  
+> 8.214.40.136:8083/otcInfo/saveEntityInfo/entityPerson  
 
 #### METHOD:
 > POST
@@ -179,7 +179,7 @@ Sample json here...
 <br>
 
 #### URL:
-> wordpress.virgocx.org/otcInfo/saveMemberInfo/individual  
+> 8.214.40.136:8083/otcInfo/saveMemberInfo/individual  
 
 #### METHOD:
 > POST 
@@ -249,9 +249,9 @@ Sample json here...
 <br>
 
 #### URL:
-> wordpress.virgocx.org/saveRechargeInfo/cryptoToCrypto  
+> 8.214.40.136:8083/otcInfo/saveRechargeInfo/cryptoToCrypto  
 
-> wordpress.virgocx.org/saveRechargeInfo/cryptoToFiat  
+> 8.214.40.136:8083/otcInfo/saveRechargeInfo/cryptoToFiat  
 
 #### METHOD:
 > POST 
