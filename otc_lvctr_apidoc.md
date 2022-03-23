@@ -71,12 +71,27 @@
 | Purchase of prepaid payment product/card | 26    |             |
 | Other                                    | 11    |             |
 ------
+
+### Authentication Rule
+
+Path Variable:
+
+> timestamp: the unix timestamp of the time when the request happens.
+
+> sign: lowercase of md5(timestamp+APIKEY)
+
+For example:   
+Request time: Mar 23 2022 12:55:54 EST, APIKEY:ABCDE   
+Sign is md5(1648054554ABCDE) -> cb333877936e25aeb33e61a946d24155   
+URL:  
+> 8.214.40.136:8083/otcInfo/saveMemberInfo/corporate?timestamp=1648054554&sign=cb333877936e25aeb33e61a946d24155
+
 ### 1. CREATE Corporate Member Info
 
 <br>
 
 #### URL:
-> 8.214.40.136:8083/otcInfo/saveMemberInfo/corporate  
+> 8.214.40.136:8083/otcInfo/saveMemberInfo/corporate?timestamp={}&sign={}  
 
 #### METHOD:
 > POST 
@@ -142,7 +157,7 @@ Sample json here...
 <br>
 
 #### URL:
-> 8.214.40.136:8083/otcInfo/saveEntityInfo/entityPerson  
+> 8.214.40.136:8083/otcInfo/saveEntityInfo/entityPerson?timestamp={}&sign={}    
 
 #### METHOD:
 > POST
@@ -179,7 +194,7 @@ Sample json here...
 <br>
 
 #### URL:
-> 8.214.40.136:8083/otcInfo/saveMemberInfo/individual  
+> 8.214.40.136:8083/otcInfo/saveMemberInfo/individual?timestamp={}&sign={}    
 
 #### METHOD:
 > POST 
@@ -249,9 +264,9 @@ Sample json here...
 <br>
 
 #### URL:
-> 8.214.40.136:8083/otcInfo/saveRechargeInfo/cryptoToCrypto  
+> 8.214.40.136:8083/otcInfo/saveRechargeInfo/cryptoToCrypto?timestamp={}&sign={}    
 
-> 8.214.40.136:8083/otcInfo/saveRechargeInfo/cryptoToFiat  
+> 8.214.40.136:8083/otcInfo/saveRechargeInfo/cryptoToFiat?timestamp={}&sign={}    
 
 #### METHOD:
 > POST 
