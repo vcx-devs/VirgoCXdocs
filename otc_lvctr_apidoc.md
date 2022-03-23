@@ -74,7 +74,7 @@
 
 ### Authentication Rule
 
-Path Variable:
+Request Param:
 
 > timestamp: the unix timestamp of the time when the request happens.
 
