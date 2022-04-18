@@ -84,14 +84,14 @@ For example:
 Request time: Mar 23 2022 12:55:54 EST, APIKEY:ABCDE   
 Sign is md5(1648054554ABCDE) -> cb333877936e25aeb33e61a946d24155   
 URL:  
-> 8.214.40.136:8083/otcInfo/saveMemberInfo/corporate?timestamp=1648054554&sign=cb333877936e25aeb33e61a946d24155
+> 13.213.202.14:8082/otcInfo/saveMemberInfo/corporate?timestamp=1648054554&sign=cb333877936e25aeb33e61a946d24155
 
 ### 1. CREATE Corporate Member Info
 
 <br>
 
 #### URL:
-> 8.214.40.136:8083/otcInfo/saveMemberInfo/corporate?timestamp={}&sign={}  
+> 13.213.202.14:8082/otcInfo/saveMemberInfo/corporate?timestamp={}&sign={}  
 
 #### METHOD:
 > POST 
@@ -157,7 +157,7 @@ Sample json here...
 <br>
 
 #### URL:
-> 8.214.40.136:8083/otcInfo/saveEntityInfo/entityPerson?timestamp={}&sign={}    
+> 13.213.202.14:8082/otcInfo/saveEntityInfo/entityPerson?timestamp={}&sign={}    
 
 #### METHOD:
 > POST
@@ -194,7 +194,7 @@ Sample json here...
 <br>
 
 #### URL:
-> 8.214.40.136:8083/otcInfo/saveMemberInfo/individual?timestamp={}&sign={}    
+> 13.213.202.14:8082/otcInfo/saveMemberInfo/individual?timestamp={}&sign={}    
 
 #### METHOD:
 > POST 
@@ -264,9 +264,9 @@ Sample json here...
 <br>
 
 #### URL:
-> 8.214.40.136:8083/otcInfo/saveRechargeInfo/cryptoToCrypto?timestamp={}&sign={}    
+> 13.213.202.14:8082/otcInfo/saveRechargeInfo/cryptoToCrypto?timestamp={}&sign={}    
 
-> 8.214.40.136:8083/otcInfo/saveRechargeInfo/cryptoToFiat?timestamp={}&sign={}    
+> 13.213.202.14:8082/otcInfo/saveRechargeInfo/cryptoToFiat?timestamp={}&sign={}    
 
 #### METHOD:
 > POST 
@@ -275,25 +275,24 @@ Sample json here...
 
 #### DATA:
 
-| Name                             | Type      | Salesforce Key             | Required | Example                                                              | Description                               |
-|----------------------------------|-----------|----------------------------|----------|----------------------------------------------------------------------|-------------------------------------------|
-| otcAccountNumber                 | String    | OTC Account #              | Required | "C1234"                                                              |                                           |
-| transactionId                    | String    | TransactionID              | Required | "C1433"                                                              |                                           |
-| transactionTypeCode              | Integer   | Method of Transaction Abbr | Required | 8                                                                    |                                           |
-| clientToPlatformHash             | String    | Transaction hash           | Required | "0x678011e2833e24628dcc58213fa176a2069607853a74d627a24ca05351d1a818" |                                           |
-| clientToPlatformSendingWallet    | String    | Address                    | Required | "0xeadc0397ceded9abfbd70ba7625db03067e9cb0c"                         |                                           |
-| clientToPlatformReceivingWallet  | String    | Address                    | Required | "0x780Bb33836f0DeC4138c39348979EEC739757D6"                          |                                           |
-| conductorIndicator               | Integer   | conductorIndicator         | Required | 0                                                                    | 0 false, 1 true                           |
-| onBehalfIndicator                | Integer   | onBehalfIndicator          | Required | 0                                                                    | 0 false, 1 true                           |
-| baseCurrency                     | String    | Digital Currency           | Required | "USDT"                                                               |                                           |
-| qty                              | String    | Total Crypto Amount        | Required | "61215.320000"                                                       |                                           |
-| baseCurrencyCanadianExchangeRate | String    | Price Per Token            | Required | "1.3236000000"                                                       |                                           |
-| totalValueInCad                  | String    | Value in CAD               | Required | "81024.600000"                                                       |                                           |
-| otcRechargeCompleteActionsList   | JsonArray |                            | Required | [{}]                                                                 | See CompleteAction table below            |
-| otcOriginatorInfo                | JsonArray |                            | Optional | [{}],if conductorIndicator value is 1, must provide this arrayList   | See otcOriginatorInfo table below         |
-| otcOriginatorBehalfInfo          | JsonArray |                            | Optional | [{}],if onBehalfIndicator value is 1, must provide this arrayList    | See otcOriginatorBehalfInfo table below   |
-
-
+| Name                             | Type      | Salesforce Key             | Required | Example                                                              | Description                                                            |
+|----------------------------------|-----------|----------------------------|----------|----------------------------------------------------------------------|------------------------------------------------------------------------|
+| otcAccountNumber                 | String    | OTC Account #              | Required | "C1234"                                                              |                                                                        |
+| transactionId                    | String    | TransactionID              | Required | "C1433"                                                              |                                                                        |
+| transactionTypeCode              | Integer   | Method of Transaction Abbr | Required | 8                                                                    |                                                                        |
+| clientToPlatformHash             | String    | Transaction hash           | Required | "0x678011e2833e24628dcc58213fa176a2069607853a74d627a24ca05351d1a818" |                                                                        |
+| clientToPlatformSendingWallet    | String    | Address                    | Required | "0xeadc0397ceded9abfbd70ba7625db03067e9cb0c"                         |                                                                        |
+| clientToPlatformReceivingWallet  | String    | Address                    | Required | "0x780Bb33836f0DeC4138c39348979EEC739757D6"                          |                                                                        |
+| conductorIndicator               | Integer   | conductorIndicator         | Required | 0                                                                    | 0 false, 1 true                                                        |
+| onBehalfIndicator                | Integer   | onBehalfIndicator          | Required | 0                                                                    | 0 false, 1 true                                                        |
+| baseCurrency                     | String    | Digital Currency           | Required | "USDT"                                                               |                                                                        |
+| qty                              | String    | Total Crypto Amount        | Required | "61215.320000"                                                       |                                                                        |
+| baseCurrencyCanadianExchangeRate | String    | Price Per Token            | Required | "1.3236000000"                                                       |                                                                        |
+| totalValueInCad                  | String    | Value in CAD               | Required | "81024.600000"                                                       |                                                                        |
+| transactionTime                  | timestamp |                            | Required | "1646191191000"                                                      | Transaction time for this record, pass the value to api with 13 digits |
+| otcRechargeCompleteActionsList   | JsonArray |                            | Required | [{}]                                                                 | See CompleteAction table below                                         |
+| otcOriginatorInfo                | JsonArray |                            | Optional | [{}],if conductorIndicator value is 1, must provide this arrayList   | See otcOriginatorInfo table below                                      |
+| otcOriginatorBehalfInfo          | JsonArray |                            | Optional | [{}],if onBehalfIndicator value is 1, must provide this arrayList    | See otcOriginatorBehalfInfo table below                                |
 #### CompleteAction
 
 | Name                                | Type    | Salesforce Key          | Crypto   | Fiat     | Example                                                              | Description                                           |
@@ -463,9 +462,10 @@ Sample json here, crypto-crypto example 2,conductorIndicator is 1 and onbehalfIn
     "otcAccountNumber":"C1234",
     "transactionId":"C1469",
     "transactionTypeCode":8,
-    "clientToPlatformHash":"0x678011e2833e24628dcc58213fa176a2069607853a74d627a24ca05351d1a308",
-    "clientToPlatformSendingWallet":"0xeadc0397ceded9abfbd70ba7625db03067e9cb0c",
-    "clientToPlatformReceivingWallet":"0x780Bb33836f0DeC4138c39348979EEC739757D6",
+    //if exists multiple, use "/" separate
+    "clientToPlatformHash":"0x678011e2833e24628dcc58213fa176a2069607853a74d627a24ca05351d1a308/xxxxxxx",
+    "clientToPlatformSendingWallet":"0xeadc0397ceded9abfbd70ba7625db03067e9cb0c/xxxxxxx",
+    "clientToPlatformReceivingWallet":"0x780Bb33836f0DeC4138c39348979EEC739757D6/xxxxxxx",
     "conductorIndicator":1,
     "onBehalfIndicator":1,
     "baseCurrency":"USDT",
@@ -532,9 +532,10 @@ Sample json here, crypto-fiat example 3,conductorIndicator is 0 and onbehalfIndi
     "otcAccountNumber":"C1234",
     "transactionId":"C1470",
     "transactionTypeCode":8,
-    "clientToPlatformHash":"0x678011e2833e24628dcc58213fa176a2069607853a74d627a24ca05351d1a308",
-    "clientToPlatformSendingWallet":"0xeadc0397ceded9abfbd70ba7625db03067e9cb0c",
-    "clientToPlatformReceivingWallet":"0x780Bb33836f0DeC4138c39348979EEC739757D6",
+    //if exists multiple, use "/" separate
+    "clientToPlatformHash":"0x678011e2833e24628dcc58213fa176a2069607853a74d627a24ca05351d1a308/0x678011e2833e24628dcc58213fa176a2069607853a74d627a24ca05351d1a307",
+    "clientToPlatformSendingWallet":"0xeadc0397ceded9abfbd70ba7625db03067e9cb0c/0xeadc0397ceded9abfbd70ba7625db03067e9cb0A",
+    "clientToPlatformReceivingWallet":"0x780Bb33836f0DeC4138c39348979EEC739757D6/0x780Bb33836f0DeC4138c39348979EEC739757D9",
     "conductorIndicator":0,
     "onBehalfIndicator":0,
     "baseCurrency":"USDT",
