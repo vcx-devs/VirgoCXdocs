@@ -84,14 +84,14 @@ For example:
 Request time: Mar 23 2022 12:55:54 EST, APIKEY:ABCDE   
 Sign is md5(1648054554ABCDE) -> cb333877936e25aeb33e61a946d24155   
 URL:  
-> 13.213.202.14:8082/otcInfo/saveMemberInfo/corporate?timestamp=1648054554&sign=cb333877936e25aeb33e61a946d24155
+> otcwordpress.virgocx.org/otcInfo/saveMemberInfo/corporate?timestamp=1648054554&sign=cb333877936e25aeb33e61a946d24155
 
 ### 1. CREATE Corporate Member Info
 
 <br>
 
 #### URL:
-> 13.213.202.14:8082/otcInfo/saveMemberInfo/corporate?timestamp={}&sign={}  
+> otcwordpress.virgocx.org/otcInfo/saveMemberInfo/corporate?timestamp={}&sign={}  
 
 #### METHOD:
 > POST 
@@ -157,7 +157,7 @@ Sample json here...
 <br>
 
 #### URL:
-> 13.213.202.14:8082/otcInfo/saveEntityInfo/entityPerson?timestamp={}&sign={}    
+> otcwordpress.virgocx.org/otcInfo/saveEntityInfo/entityPerson?timestamp={}&sign={}    
 
 #### METHOD:
 > POST
@@ -194,7 +194,7 @@ Sample json here...
 <br>
 
 #### URL:
-> 13.213.202.14:8082/otcInfo/saveMemberInfo/individual?timestamp={}&sign={}    
+> otcwordpress.virgocx.org/otcInfo/saveMemberInfo/individual?timestamp={}&sign={}    
 
 #### METHOD:
 > POST 
@@ -264,9 +264,9 @@ Sample json here...
 <br>
 
 #### URL:
-> 13.213.202.14:8082/otcInfo/saveRechargeInfo/cryptoToCrypto?timestamp={}&sign={}    
+> otcwordpress.virgocx.org/otcInfo/saveRechargeInfo/cryptoToCrypto?timestamp={}&sign={}    
 
-> 13.213.202.14:8082/otcInfo/saveRechargeInfo/cryptoToFiat?timestamp={}&sign={}    
+> otcwordpress.virgocx.org/otcInfo/saveRechargeInfo/cryptoToFiat?timestamp={}&sign={}    
 
 #### METHOD:
 > POST 
