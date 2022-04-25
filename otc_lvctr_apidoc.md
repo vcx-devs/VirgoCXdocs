@@ -109,16 +109,16 @@ URL:
 | streetAddress                          | String  | Street Address             | Required | West Jackson Boulevard    || 
 | city                                   | String  | City                       | Required | OC00855                   || 
 | countryCode                            | String  | Country Abbr               | Required | CA                        || 
-| provinceCode                           | String  | Province Abbr              | Optional | ON                        | Country code is MX/US/CA,must provide this field                                                                     | 
+| provinceCode                           | String  | Province Abbr              | Required | ON                        | If don't have specific value, use "Unknown"                                                                          | 
 | postalCode                             | String  | Postal Code                | Required | A1E4S2                    | A1E4S2(CA)/60606(US)                                                                                                 | 
 | telephoneNumber                        | String  | Phone                      | Required | 3128786784                || 
 | registrationNumber                     | String  | Register Number            | Required | ON51222012                ||
 | registrationJurisdictionCountryCode    | String  | Registration Country Abbr  | Required | CA                        || 
-| registrationJurisdictionProvinceCode   | String  | Registration Province Abbr | Optional | ON                        | Registration Country Abbr is MX/US/CA,must provide this field                                                        | 
+| registrationJurisdictionProvinceCode   | String  | Registration Province Abbr | Required | ON                        | If don't have specific value, use "Unknown"                                                                          | 
 | identificationType                     | String  | Identification Type        | Required | ANNUAL_REPORT             | Use the value in the name column of Entity Id type,if choose last one, provide the type name with ALL capital letter | 
 | identificationNumber                   | String  | Registration Number        | Required ||| 
 | identificationJurisdictionCountryCode  | String  | Jurisdiction Country Abbr  | Required | CA                        ||
-| identificationJurisdictionProvinceCode | String  | Jurisdiction Province Abbr | Optional | ON                        | Jurisdiction Province Abbr is MX/US/CA,must provide this field                                                       |
+| identificationJurisdictionProvinceCode | String  | Jurisdiction Province Abbr | Required | ON                        | If don't have specific value, use "Unknown"                                                                          |
 | transactionPurpose                     | String  | Transaction Purpose        | Required | OTC Trading/Market making | If the value of 'Purpose of Account' is other,provide the value of 'Other purposes'                                  |
 
 
@@ -216,7 +216,7 @@ Sample json here...
 | city                                   | String  | City                          | Required | Toronto                   |                                                                                     | 
 | district                               | String  | District                      | Optional |                           |                                                                                     |
 | countryCode                            | String  | Country Abbr                  | Required | CA                        |                                                                                     | 
-| provinceCode                           | String  | Province Abbr                 | Optional | ON                        | Country Abbr is MX/US/CA,must provide this field                                    | 
+| provinceCode                           | String  | Province Abbr                 | Required | ON                        | If don't have specific value, use "Unknown"                                         | 
 | postalCode                             | String  | Postal Code                   | Required | A1E4S2                    | US version:60606,5 numbers is ok                                                    | 
 | telephoneNumber                        | String  | Phone                         | Required | 41612345678               |                                                                                     | 
 | birthDate                              | String  | Date of birth                 | Required | 1989-02-23                |                                                                                     |
@@ -225,7 +225,7 @@ Sample json here...
 | identificationType                     | String  | ID Type                       | Required | PASSPORT                  |                                                                                     |
 | identificationNumber                   | String  | ID Number                     | Required | G520123456                |                                                                                     |
 | identificationJurisdictionCountryCode  | String  | ID Jurisdiction Country Abbr  | Required | CA                        |                                                                                     |
-| identificationJurisdictionProvinceCode | String  | ID Jurisdiction Province Abbr | Optional | ON                        | If ID Jurisdiction Country Abbr is MX/US/CA,must provide this field                 |
+| identificationJurisdictionProvinceCode | String  | ID Jurisdiction Province Abbr | Required | ON                        | If don't have specific value, use "Unknown"                                         |
 | transactionPurpose                     | String  | Transaction Purpose           | Required | OTC Trading/Market making | If the value of 'Purpose of Account' is other,provide the value of 'Other purposes' |
 
 
@@ -317,32 +317,32 @@ Sample json here...
 #### otcOriginatorInfo
 
 
-| Name                                   | Type    | Salesforce Key                | Individual | Corporate | Example                              | Description                                                         |
-|----------------------------------------|---------|-------------------------------|------------|-----------|--------------------------------------|---------------------------------------------------------------------|
-| perOrEntity                            | Integer |                               | Required   | Required  | 1 or 2                               | 1. Individual 2. entity                                             |
-| entityName                             | String  | Name                          | NO         | Required  | "Virgocx"                            |                                                                     |
-| firstName                              | String  | First Name                    | Required   | NO        | "Adam"                               |                                                                     |
-| middleName                             | String  | Middle Name                   | Optional   | NO        |                                      |                                                                     |
-| lastName                               | String  | Last Name                     | Required   | NO        | "Cai"                                |                                                                     |
-| unitNum                                | String  | Unit Number                   | Optional   | Optional  |                                      |                                                                     |
-| buildingNum                            | String  | Building Number               | Required   | Required  | "45"                                 |                                                                     |
-| streetAddress                          | String  | Street Address                | Required   | Required  | "Sheppard Ave"                       |                                                                     |
-| city                                   | String  | City                          | Required   | Required  | "Toronto"                            |                                                                     |
-| district                               | String  | District                      | Optional   | Optional  | "North York"                         |                                                                     |
-| countryCode                            | String  | Country Abbr                  | Required   | Required  | "CA"                                 |                                                                     |
-| province                               | String  | Province Abbr                 | Optional   | Optional  | "ON"                                 | Country Abbr is MX/US/CA,must provide this field                    |
-| postalCode                             | String  | Postal Code                   | Required   | Required  | "A1E4S2"                             | US version:60606,5 numbers is ok                                    |
-| telephoneNumber                        | String  | Phone                         | Required   | Required  | "41612345678"                        |                                                                     |
-| birthday                               | String  | Date of birth                 | Required   | NO        | "1989-02-23"                         |                                                                     |
-| residenceCountryCode                   | String  | Country of residence Abbr     | Required   | NO        | "CA"                                 |                                                                     |
-| occupation                             | String  | Title/Role                    | Required   | NO        | "Project manager"                    |                                                                     |
-| idType                                 | String  | ID Type                       | Required   | Required  | "PASSPORT"/"ARTICLES_OF_ASSOCIATION" | Please provide value depend on ID type table list above             |
-| idNum                                  | String  | ID Number                     | Required   | Required  | "G520123456"                         |                                                                     |
-| identificationJurisdictionCountryCode  | String  | ID Jurisdiction Country Abbr  | Required   | Required  | "CA"                                 |                                                                     |
-| identificationJurisdictionProvinceCode | String  | ID Jurisdiction Province Abbr | Optional   | Optional  | "ON"                                 | If ID Jurisdiction Country Abbr is MX/US/CA,must provide this field |
-| registrationNumber                     | String  | Register Number               | NO         | Required  | "ON51222012"                         |                                                                     |
-| registrationJurisdictionCountryCode    | String  | Registration Country Abbr     | NO         | Required  | "CA"                                 |                                                                     | 
-| registrationJurisdictionProvinceCode   | String  | Registration Province Abbr    | NO         | Optional  | "ON"                                 | Registration Country Abbr is MX/US/CA,must provide this field       | 
+| Name                                   | Type    | Salesforce Key                | Individual | Corporate | Example                              | Description                                             |
+|----------------------------------------|---------|-------------------------------|------------|-----------|--------------------------------------|---------------------------------------------------------|
+| perOrEntity                            | Integer |                               | Required   | Required  | 1 or 2                               | 1. Individual 2. entity                                 |
+| entityName                             | String  | Name                          | NO         | Required  | "Virgocx"                            |                                                         |
+| firstName                              | String  | First Name                    | Required   | NO        | "Adam"                               |                                                         |
+| middleName                             | String  | Middle Name                   | Optional   | NO        |                                      |                                                         |
+| lastName                               | String  | Last Name                     | Required   | NO        | "Cai"                                |                                                         |
+| unitNum                                | String  | Unit Number                   | Optional   | Optional  |                                      |                                                         |
+| buildingNum                            | String  | Building Number               | Required   | Required  | "45"                                 |                                                         |
+| streetAddress                          | String  | Street Address                | Required   | Required  | "Sheppard Ave"                       |                                                         |
+| city                                   | String  | City                          | Required   | Required  | "Toronto"                            |                                                         |
+| district                               | String  | District                      | Optional   | Optional  | "North York"                         |                                                         |
+| countryCode                            | String  | Country Abbr                  | Required   | Required  | "CA"                                 |                                                         |
+| province                               | String  | Province Abbr                 | Required   | Required  | "ON"                                 | If don't have specific value, use "Unknown"             |
+| postalCode                             | String  | Postal Code                   | Required   | Required  | "A1E4S2"                             | US version:60606,5 numbers is ok                        |
+| telephoneNumber                        | String  | Phone                         | Required   | Required  | "41612345678"                        |                                                         |
+| birthday                               | String  | Date of birth                 | Required   | NO        | "1989-02-23"                         |                                                         |
+| residenceCountryCode                   | String  | Country of residence Abbr     | Required   | NO        | "CA"                                 |                                                         |
+| occupation                             | String  | Title/Role                    | Required   | NO        | "Project manager"                    |                                                         |
+| idType                                 | String  | ID Type                       | Required   | Required  | "PASSPORT"/"ARTICLES_OF_ASSOCIATION" | Please provide value depend on ID type table list above |
+| idNum                                  | String  | ID Number                     | Required   | Required  | "G520123456"                         |                                                         |
+| identificationJurisdictionCountryCode  | String  | ID Jurisdiction Country Abbr  | Required   | Required  | "CA"                                 |                                                         |
+| identificationJurisdictionProvinceCode | String  | ID Jurisdiction Province Abbr | Required   | Required  | "ON"                                 | If don't have specific value, use "Unknown"             |
+| registrationNumber                     | String  | Register Number               | NO         | Required  | "ON51222012"                         |                                                         |
+| registrationJurisdictionCountryCode    | String  | Registration Country Abbr     | NO         | Required  | "CA"                                 |                                                         | 
+| registrationJurisdictionProvinceCode   | String  | Registration Province Abbr    | NO         | Required  | "ON"                                 | If don't have specific value, use "Unknown"             | 
 
 
 #### otcOriginatorBehalfInfo
@@ -360,7 +360,7 @@ Sample json here...
 | city                                   | String  | City                          | Required   | Required  | "Toronto"                            |                                                                                                                                                                                    |
 | district                               | String  | District                      | Optional   | Optional  | "North York"                         |                                                                                                                                                                                    |
 | countryCode                            | String  | Country Abbr                  | Required   | Required  | "CA"                                 |                                                                                                                                                                                    |
-| province                               | String  | Province Abbr                 | Optional   | Optional  | "ON"                                 | Country Abbr is MX/US/CA,must provide this field                                                                                                                                   |
+| province                               | String  | Province Abbr                 | Required   | Required  | "ON"                                 | If don't have specific value, use "Unknown"                                                                                                                                        |
 | postalCode                             | String  | Postal Code                   | Required   | Required  | "A1E4S2"                             | US version:60606,5 numbers is ok                                                                                                                                                   |
 | telephoneNumber                        | String  | Phone                         | Required   | Required  | "41612345678"                        |                                                                                                                                                                                    |
 | birthday                               | String  | Date of birth                 | Required   | NO        | "1989-02-23"                         |                                                                                                                                                                                    |
@@ -369,10 +369,10 @@ Sample json here...
 | idType                                 | String  | ID Type                       | Required   | Required  | "PASSPORT"/"ARTICLES_OF_ASSOCIATION" | Please provide value depend on ID type table list above                                                                                                                            |
 | idNum                                  | String  | ID Number                     | Required   | Required  | "G520123456"                         |                                                                                                                                                                                    |
 | identificationJurisdictionCountryCode  | String  | ID Jurisdiction Country Abbr  | Required   | Required  | "CA"                                 |                                                                                                                                                                                    |
-| identificationJurisdictionProvinceCode | String  | ID Jurisdiction Province Abbr | Optional   | Optional  | "ON"                                 | If ID Jurisdiction Country Abbr is MX/US/CA,must provide this field                                                                                                                |
+| identificationJurisdictionProvinceCode | String  | ID Jurisdiction Province Abbr | Required   | Required  | "ON"                                 | If don't have specific value, use "Unknown"                                                                                                                                        |
 | registrationNumber                     | String  | Register Number               | NO         | Required  | "ON51222012"                         |                                                                                                                                                                                    |
 | registrationJurisdictionCountryCode    | String  | Registration Country Abbr     | NO         | Required  | "CA"                                 |                                                                                                                                                                                    |
-| registrationJurisdictionProvinceCode   | String  | Registration Province Abbr    | NO         | Optional  | "ON"                                 | Registration Country Abbr is MX/US/CA,must provide this field                                                                                                                      |
+| registrationJurisdictionProvinceCode   | String  | Registration Province Abbr    | NO         | Required  | "ON"                                 | If don't have specific value, use "Unknown"                                                                                                                                        |
 | relationshipTypeCode                   | Integer |                               | Required   | Required  | 4                                    | 1. Accountant 2. Agent 10. Legal counsel 3. Borrower 4. Broker 11. Employer 5. Customer 6. Employee 7. Friend 8. Relative 12. Joint/Secondary owner 13. Power of attorney 9. Other |
 | relationshipTypeOther                  | String  |                               | Optional   | Optional  | "Unknown" OR "Couple" OR "Wife"      | If relationShipTypeCode is 4, must provide this value                                                                                                                              |
 ```
@@ -502,6 +502,7 @@ Sample json here, crypto-crypto example 2,conductorIndicator is 1 and onbehalfIn
             "idType":"ARTICLES_OF_ASSOCIATION",
             "idNum":"G51213456",
             "identificationJurisdictionCountryCode":"CN"
+            "identificationJurisdictionCountryCode":"Unknown"
         }
     ],
     "otcOriginatorBehalfInfo":[
@@ -511,17 +512,17 @@ Sample json here, crypto-crypto example 2,conductorIndicator is 1 and onbehalfIn
             "buildingNum":"45",
             "streetAddress":"Sheppard Ave",
             "city":"Toronto",
-            "countryCode":"CA",
-            "province":"ON",
+            "countryCode":"CN",
+            "province":"Unknown",
             "postalCode":"A1E4S2",
             "registrationNumber":"ON12345678",
-            "registrationJurisdictionCountryCode":"CA",
-            "registrationJurisdictionProvinceCode":"ON",
+            "registrationJurisdictionCountryCode":"CN",
+            "registrationJurisdictionProvinceCode":"Unknown",
             "telephoneNumber":"4165818505",
             "idType":"ARTICLES_OF_ASSOCIATION",
             "idNum":"G51213456",
-            "identificationJurisdictionCountryCode":"CA",
-            "identificationJurisdictionProvinceCode":"ON",
+            "identificationJurisdictionCountryCode":"CN",
+            "identificationJurisdictionProvinceCode":"Unknown",
             "relationshipTypeCode":10
         }
     ]
