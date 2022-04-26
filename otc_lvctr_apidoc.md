@@ -512,17 +512,17 @@ Sample json here, crypto-crypto example 2,conductorIndicator is 1 and onbehalfIn
             "buildingNum":"45",
             "streetAddress":"Sheppard Ave",
             "city":"Toronto",
-            "countryCode":"CN",
-            "province":"Unknown",
+            "countryCode":"CA",
+            "province":"ON",
             "postalCode":"A1E4S2",
             "registrationNumber":"ON12345678",
-            "registrationJurisdictionCountryCode":"CN",
-            "registrationJurisdictionProvinceCode":"Unknown",
+            "registrationJurisdictionCountryCode":"BR",
+            "registrationJurisdictionProvinceCode":"Saopaulo",
             "telephoneNumber":"4165818505",
             "idType":"ARTICLES_OF_ASSOCIATION",
             "idNum":"G51213456",
             "identificationJurisdictionCountryCode":"CN",
-            "identificationJurisdictionProvinceCode":"Unknown",
+            "identificationJurisdictionProvinceCode":"Shandong",
             "relationshipTypeCode":10
         }
     ]
