@@ -112,8 +112,8 @@ URL:
 | provinceCode                           | String  | Province Abbr              | Required | ON                        | If don't have specific value, use "Unknown"                                                                          | 
 | postalCode                             | String  | Postal Code                | Required | A1E4S2                    | A1E4S2(CA)/60606(US)                                                                                                 | 
 | telephoneNumber                        | String  | Phone                      | Required | 3128786784                || 
-| telephoneExtension                     | String  |                            | Optional |                           ||
-| businessNature                         | String  |                            | Optional |                           ||
+| telephoneExtension(new)                | String  |                            | Optional |                           ||
+| businessNature(new)                    | String  |                            | Optional |                           ||
 | registrationNumber                     | String  | Register Number            | Required | ON51222012                ||
 | registrationJurisdictionCountryCode    | String  | Registration Country Abbr  | Required | CA                        || 
 | registrationJurisdictionProvinceCode   | String  | Registration Province Abbr | Required | ON                        | If don't have specific value, use "Unknown"                                                                          | 
@@ -223,11 +223,11 @@ Sample json here...
 | provinceCode                           | String  | Province Abbr                 | Required | ON                        | If don't have specific value, use "Unknown"                                         | 
 | postalCode                             | String  | Postal Code                   | Required | A1E4S2                    | US version:60606,5 numbers is ok                                                    | 
 | telephoneNumber                        | String  | Phone                         | Required | 41612345678               |                                                                                     | 
-| telephoneExtension                     | String  |                               | Optional |                           |                                                                                     |
+| telephoneExtension(new)                | String  |                               | Optional |                           |                                                                                     |
 | birthDate                              | String  | Date of birth                 | Required | 1989-02-23                |                                                                                     |
 | residenceCountryCode                   | String  | Country of residence Abbr     | Required | CA                        |                                                                                     |
 | occupation                             | String  | Title/Role                    | Required | Project manager           |                                                                                     |
-| employerName                           | String  |                               | Optional | Virgocx                   | employer name                                                                       |
+| employerName(new)                      | String  |                               | Optional | Virgocx                   | employer name                                                                       |
 | identificationType                     | String  | ID Type                       | Required | PASSPORT                  |                                                                                     |
 | identificationNumber                   | String  | ID Number                     | Required | G520123456                |                                                                                     |
 | identificationJurisdictionCountryCode  | String  | ID Jurisdiction Country Abbr  | Required | CA                        |                                                                                     |
@@ -283,36 +283,36 @@ Sample json here...
 
 #### DATA:
 
-| Name                                       | Type      | Salesforce Key             | Required | Example                                                              | Description                                                            |
-|--------------------------------------------|-----------|----------------------------|----------|----------------------------------------------------------------------|------------------------------------------------------------------------|
-| otcAccountNumber                           | String    | OTC Account #              | Required | "C1234"                                                              |                                                                        |
-| transactionId                              | String    | TransactionID              | Required | "C1433"                                                              |                                                                        |
-| transactionMethodTypeCode(update key name) | Integer   | Method of Transaction Abbr | Required | 8                                                                    | 1:In person 7:Other 8:Online 9:Virtual currency ATM                    |
-| transactionMethodTypeOther(new)            | String    |                            | Optional | "Whatsapp"                                                           | If transactionMethodTypeCode is 7 must provide this value              |
-| clientToPlatformHash                       | String    | Transaction hash           | Required | "0x678011e2833e24628dcc58213fa176a2069607853a74d627a24ca05351d1a818" |                                                                        |
-| clientToPlatformSendingWallet              | String    | Address                    | Required | "0xeadc0397ceded9abfbd70ba7625db03067e9cb0c"                         |                                                                        |
-| clientToPlatformReceivingWallet            | String    | Address                    | Required | "0x780Bb33836f0DeC4138c39348979EEC739757D6"                          |                                                                        |
-| conductorIndicator                         | Integer   | conductorIndicator         | Required | 0                                                                    | 0 false, 1 true                                                        |
-| onBehalfIndicator                          | Integer   | onBehalfIndicator          | Required | 0                                                                    | 0 false, 1 true                                                        |
-| baseCurrency                               | String    | Digital Currency           | Required | "USDT"                                                               |                                                                        |
-| qty                                        | String    | Total Crypto Amount        | Required | "61215.320000"                                                       |                                                                        |
-| baseCurrencyCanadianExchangeRate           | String    | Price Per Token            | Required | "1.3236000000"                                                       |                                                                        |
-| totalValueInCad                            | String    | Value in CAD               | Required | "81024.600000"                                                       |                                                                        |
-| deviceTypeCode(new)                        | Integer   |                            | Optional | 3                                                                    | 1 Computer/Laptop,2 Mobile phone,3 Tablet,4 Other                      |
-| deviceTypeOther(new)                       | String    |                            | Optional |                                                                      | if deviceTypeCode is 4, must provide this value                        |
-| deviceIdentificationNumber(new)            | String    |                            | Optional | "03e73331cd0f94093a4bb22dfdb3baee"                                   |                                                                        |
-| deviceIpAddress(new)                       | String    |                            | Optional | "24.16.223.12"                                                       |                                                                        |
-| transactionTime                            | timestamp |                            | Required | "1646191191000"                                                      | Transaction time for this record, pass the value to api with 13 digits |
-| otcRechargeCompleteActionsList             | JsonArray |                            | Required | [{}]                                                                 | See CompleteAction table below                                         |
-| otcOriginatorInfo                          | JsonArray |                            | Optional | [{}],if conductorIndicator value is 1, must provide this arrayList   | See otcOriginatorInfo table below                                      |
-| otcOriginatorBehalfInfo                    | JsonArray |                            | Optional | [{}],if onBehalfIndicator value is 1, must provide this arrayList    | See otcOriginatorBehalfInfo table below                                |
+| Name                                       | Type      | Salesforce Key             | Required | Example                                                              | Description                                                                    |
+|--------------------------------------------|-----------|----------------------------|----------|----------------------------------------------------------------------|--------------------------------------------------------------------------------|
+| otcAccountNumber                           | String    | OTC Account #              | Required | "C1234"                                                              |                                                                                |
+| transactionId                              | String    | TransactionID              | Required | "C1433"                                                              |                                                                                |
+| transactionMethodTypeCode(update key name) | Integer   | Method of Transaction Abbr | Required | 8                                                                    | 1:In person 7:Other 8:Online 9:Virtual currency ATM  was "transactionTypeCode" |
+| transactionMethodTypeOther(new)            | String    |                            | Optional | "Whatsapp"                                                           | If transactionMethodTypeCode is 7 must provide this value                      |
+| clientToPlatformHash                       | String    | Transaction hash           | Required | "0x678011e2833e24628dcc58213fa176a2069607853a74d627a24ca05351d1a818" |                                                                                |
+| clientToPlatformSendingWallet              | String    | Address                    | Required | "0xeadc0397ceded9abfbd70ba7625db03067e9cb0c"                         |                                                                                |
+| clientToPlatformReceivingWallet            | String    | Address                    | Required | "0x780Bb33836f0DeC4138c39348979EEC739757D6"                          |                                                                                |
+| conductorIndicator                         | Integer   | conductorIndicator         | Required | 0                                                                    | 0 false, 1 true                                                                |
+| onBehalfIndicator                          | Integer   | onBehalfIndicator          | Required | 0                                                                    | 0 false, 1 true                                                                |
+| baseCurrency                               | String    | Digital Currency           | Required | "USDT"                                                               |                                                                                |
+| qty                                        | String    | Total Crypto Amount        | Required | "61215.320000"                                                       |                                                                                |
+| baseCurrencyCanadianExchangeRate           | String    | Price Per Token            | Required | "1.3236000000"                                                       |                                                                                |
+| totalValueInCad                            | String    | Value in CAD               | Required | "81024.600000"                                                       |                                                                                |
+| deviceTypeCode(new)                        | Integer   |                            | Optional | 3                                                                    | 1 Computer/Laptop,2 Mobile phone,3 Tablet,4 Other                              |
+| deviceTypeOther(new)                       | String    |                            | Optional |                                                                      | if deviceTypeCode is 4, must provide this value                                |
+| deviceIdentificationNumber(new)            | String    |                            | Optional | "03e73331cd0f94093a4bb22dfdb3baee"                                   |                                                                                |
+| deviceIpAddress(new)                       | String    |                            | Optional | "24.16.223.12"                                                       |                                                                                |
+| transactionTime                            | timestamp |                            | Required | "1646191191000"                                                      | Transaction time for this record, pass the value to api with 13 digits         |
+| otcRechargeCompleteActionsList             | JsonArray |                            | Required | [{}]                                                                 | See CompleteAction table below                                                 |
+| otcOriginatorInfo                          | JsonArray |                            | Optional | [{}],if conductorIndicator value is 1, must provide this arrayList   | See otcOriginatorInfo table below                                              |
+| otcOriginatorBehalfInfo                    | JsonArray |                            | Optional | [{}],if onBehalfIndicator value is 1, must provide this arrayList    | See otcOriginatorBehalfInfo table below                                        |
 #### CompleteAction
 
 | Name                                | Type    | Salesforce Key          | Crypto   | Fiat     | Example                                                              | Description                                           |
 |-------------------------------------|---------|-------------------------|----------|----------|----------------------------------------------------------------------|-------------------------------------------------------|
 | dispositionTypeCode                 | Integer |                         | Required | Required | 17                                                                   | See table provide above                               |
 | dispositionTypeOther                | String  |                         | Optional | Optional | "Test Case"                                                          | If dispositionTypeCode is 11, must provide this value |
-| benefitingUsername(new)             | String  |                         | Optional | Optional |                                                                      |                                                       |
+| benefitingUsername(new)             | String  |                         | Optional | Optional | "patrick"                                                            |                                                       |
 | platformToClientHash                | String  | Transaction Hash        | Required | NO       | "0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d2468c" |                                                       |
 | platformToClientSendingWallet       | String  | Address                 | Required | NO       | "0x780bb33836f0bdec4138c39348979eec739757d6"                         |                                                       |
 | platformToClientReceivingWallet     | String  | Address                 | Required | NO       | "0xedac0397ceded9abfbd70ba7625db03067e9cb0c"                         |                                                       |
@@ -321,7 +321,7 @@ Sample json here...
 | counterCurrencyCanadianExchangeRate | String  | Current crypto price    | Required | NO       | "1.0000000000"                                                       |                                                       |
 | financialInstitutionNumber          | String  | Institution Number      | NO       | Required | "004"                                                                |                                                       |
 | branchNumber                        | String  | Transit Number          | NO       | Required | "13282"                                                              |                                                       |
-| accountHolderUsername(new)          | String  | Transit Number          | NO       | Optional |                                                                      |                                                       |
+| accountHolderUsername(new)          | String  | Transit Number          | NO       | Optional | "patrick"                                                            |                                                       |
 | accountNumber                       | String  | Account Number          | NO       | Required | "6119164"                                                            |                                                       |
 | accountCurrencyTypeCode             | String  | Fiat Currency           | NO       | Required | "CAD"/"USD"/"EUR"                                                    |                                                       |
 | accountTypeCode                     | Integer |                         | NO       | Required | 1                                                                    | 1 Personal 2 Business 3 Trust 5 Casino 4 Other        |
@@ -354,10 +354,12 @@ Sample json here...
 | birthday                               | String  | Date of birth                 | Required   | NO        | "1989-02-23"                         |                                                         |
 | residenceCountryCode                   | String  | Country of residence Abbr     | Required   | NO        | "CA"                                 |                                                         |
 | occupation                             | String  | Title/Role                    | Required   | NO        | "Project manager"                    |                                                         |
+| employerName(new)                      | String  |                               | Optional   | NO        | "Virgocx.INC"                        |                                                         |
 | idType                                 | String  | ID Type                       | Required   | Required  | "PASSPORT"/"ARTICLES_OF_ASSOCIATION" | Please provide value depend on ID type table list above |
 | idNum                                  | String  | ID Number                     | Required   | Required  | "G520123456"                         |                                                         |
 | identificationJurisdictionCountryCode  | String  | ID Jurisdiction Country Abbr  | Required   | Required  | "CA"                                 |                                                         |
 | identificationJurisdictionProvinceCode | String  | ID Jurisdiction Province Abbr | Required   | Required  | "ON"                                 | If don't have specific value, use "Unknown"             |
+| businessNature(new)                    | String  |                               | NO         | Optional  | "Trading platform"                   |                                                         |
 | registrationNumber                     | String  | Register Number               | NO         | Required  | "ON51222012"                         |                                                         |
 | registrationJurisdictionCountryCode    | String  | Registration Country Abbr     | NO         | Required  | "CA"                                 |                                                         | 
 | registrationJurisdictionProvinceCode   | String  | Registration Province Abbr    | NO         | Required  | "ON"                                 | If don't have specific value, use "Unknown"             | 
@@ -404,7 +406,7 @@ Sample json here, crypto-crypto example 1,conductorIndicator is 1 and onbehalfIn
     "clientToPlatformSendingWallet":"0xeadc0397ceded9abfbd70ba7625db03067e9cb0c",
     "clientToPlatformReceivingWallet":"0x780Bb33836f0DeC4138c39348979EEC739757D6",
     "conductorIndicator":1,
-    "onBehalfIndicator":1,
+    "onBehalfIndicator":0,
     "baseCurrency":"USDT",
     "qty":"888888.320000",
     "baseCurrencyCanadianExchangeRate":"1.3236000000",
@@ -454,36 +456,14 @@ Sample json here, crypto-crypto example 1,conductorIndicator is 1 and onbehalfIn
             "birthday":"1989-02-23",
             "residenceCountryCode":"CA",
             "occupation":"Developer",
+            "employerName":"Virgocx",
             "idType":"PASSPORT",
             "idNum":"G51213456",
             "identificationJurisdictionCountryCode":"CA",
             "identificationJurisdictionProvinceCode":"ON"        
         }
     ],
-    "otcOriginatorBehalfInfo":[
-        {
-            "perOrEntity":1,
-            "firstName":"Xiaofei",
-            "lastName":"Wang",
-            "buildingNum":"45",
-            "streetAddress":"Sheppard Ave",
-            "city":"Toronto",
-            "countryCode":"CA",
-            "province":"ON",
-            "postalCode":"A1E4S2",
-            "telephoneNumber":"4165818505",
-            "telephoneExtension":"008",
-            "birthday":"1989-01-23",
-            "residenceCountryCode":"CA",
-            "occupation":"Developer",
-            "idType":"PASSPORT",
-            "idNum":"G51213456",
-            "identificationJurisdictionCountryCode":"CA",
-            "identificationJurisdictionProvinceCode":"BC",
-            "relationshipTypeCode":9,
-            "relationshipTypeOther":"Unknown"
-        }
-    ]
+    "otcOriginatorBehalfInfo":[]
 }
 
 Sample json here, crypto-crypto example 2,conductorIndicator is 1 and onbehalfIndictor is 1 and both of them are corporate type
@@ -531,6 +511,7 @@ Sample json here, crypto-crypto example 2,conductorIndicator is 1 and onbehalfIn
             "countryCode":"CA",
             "province":"ON",
             "postalCode":"A1E4S2",
+            "businessNature":"Trading platform",
             "registrationNumber":"ON12345678",
             "registrationJurisdictionCountryCode":"CA",
             "registrationJurisdictionProvinceCode":"ON",
@@ -538,34 +519,11 @@ Sample json here, crypto-crypto example 2,conductorIndicator is 1 and onbehalfIn
             "telephoneExtension":"008",
             "idType":"ARTICLES_OF_ASSOCIATION",
             "idNum":"G51213456",
-            "identificationJurisdictionCountryCode":"CN"
-            "identificationJurisdictionCountryCode":"Unknown"
+            "identificationJurisdictionCountryCode":"CN",
+            "identificationJurisdictionProvinceCode":"Unknown"
         }
     ],
-    "otcOriginatorBehalfInfo":[
-        {
-            "perOrEntity":2,
-            "entityName":"VirgocxCx LLC.",
-            "userName":"patrick.wang",
-            "email":"patrick.wang@virgocx.ca",
-            "buildingNum":"45",
-            "streetAddress":"Sheppard Ave",
-            "city":"Toronto",
-            "countryCode":"CA",
-            "province":"ON",
-            "postalCode":"A1E4S2",
-            "registrationNumber":"ON12345678",
-            "registrationJurisdictionCountryCode":"BR",
-            "registrationJurisdictionProvinceCode":"Saopaulo",
-            "telephoneNumber":"4165818505",
-            "telephoneExtension":"008",
-            "idType":"ARTICLES_OF_ASSOCIATION",
-            "idNum":"G51213456",
-            "identificationJurisdictionCountryCode":"CN",
-            "identificationJurisdictionProvinceCode":"Shandong",
-            "relationshipTypeCode":10
-        }
-    ]
+    "otcOriginatorBehalfInfo":[]
 }
 
 Sample json here, crypto-fiat example 3,conductorIndicator is 0 and onbehalfIndictor is 0
@@ -590,7 +548,7 @@ Sample json here, crypto-fiat example 3,conductorIndicator is 0 and onbehalfIndi
     "transactionTime":"1646191191000",
     "otcRechargeCompleteActionsList":[
        {
-             "depositionTypeCode":17,
+             "dispositionTypeCode":17,
              "platformToClientHash":"0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d246673",
              "platformToClientSendingWallet":"0x780bb33836f0bdec4138c39348979eec739757d6",
              "platformToClientReceivingWallet":"0xedac0397ceded9abfbd70ba7625db03067e9cb0c",
@@ -600,7 +558,7 @@ Sample json here, crypto-fiat example 3,conductorIndicator is 0 and onbehalfIndi
              "benefitingUsername":"patrick"
        },
        {
-             "depositionTypeCode":24,
+             "dispositionTypeCode":24,
              "financialInstitutionNumber":"004",
              "branchNumber":"13282",
              "accountHolderUsername":"patrick",
