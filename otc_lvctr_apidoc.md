@@ -10,6 +10,7 @@
 | DRIVING_LICENSE                  | 4                  |             |
 | ID_CARD                          | 5                  |             |
 | CREDIT_FILE                      | 34                 |             |
+| PERMANENT_RESIDENT_CARD          | 32                 |             |
 | UTILITY_STATEMENT                | 40                 |             |
 | OTHER                            | 3                  |             |
 | GOVERNMENT_ISSUED_IDENTIFICATION | 35                 |             |
@@ -105,6 +106,8 @@ URL:
 | otcAccountNumber                       | String  | OTC Account #              | Required | OC00855                   || 
 | retailAccountNumber                    | Integer | Retail Account #           | Optional | 73                        || 
 | entityName                             | String  | Name                       | Required | DV Chain,LLC              | Corporation Name                                                                                                     | 
+| userName(new)                          | String  |                            | Optional | patrickwang               | userName                                                                                                             | 
+| email(new)                             | String  |                            | Optional | patrick.wang@virgocx.ca   | email                                                                                                                |
 | buildingNumber                         | String  | Building number            | Required | 216                       || 
 | streetAddress                          | String  | Street Address             | Required | West Jackson Boulevard    || 
 | city                                   | String  | City                       | Required | OC00855                   || 
@@ -133,6 +136,8 @@ Sample json here...
    "otcAccountNumber":"OC00855",
     "retailAccountNumber":42,
     "entityName":"Virgocx INC.",
+    "userName":"patrickwang",
+    "email":"patrick.wang@virgocx.ca"
     "buildingNumber":"45",
     "streetAddress":"Sheppard Ave",
     "city":"Toronto",
@@ -214,6 +219,8 @@ Sample json here...
 | firstName                              | String  | First Name                    | Required | Adam                      |                                                                                     | 
 | middleName                             | String  | Middle Name                   | Optional |                           |                                                                                     | 
 | lastName                               | String  | Last Name                     | Required | Cai                       |                                                                                     | 
+| userName(new)                          | String  |                               | Optional | patrickwang               | userName                                                                            | 
+| email(new)                             | String  |                               | Required | patrick.wang@virgocx.ca   | email                                                                               |
 | unitNumber                             | String  | Unit Number                   | Optional | 4305                      |                                                                                     | 
 | buildingNumber                         | String  | Building Number               | Required | 45                        |                                                                                     | 
 | streetAddress                          | String  | Street Address                | Required | Sheppard Ave              |                                                                                     | 
@@ -240,11 +247,13 @@ Sample json here...
 ```
 Sample json here...
 {
-    "otcAccountNumber":"OC12345",
+    "otcAccountNumber":"OC33333",
     "retailAccountNumber":"1475",
     "firstName":"Xiaofei",
     "middleName":"patrick",
     "lastName":"Wang",
+    "userName"："patrickwang"，
+    "email":"patrick.wang@virgocx.ca"
     "unitNumber":"105",
     "buildingNumber":"46",
     "streetAddress":"Mango Drive",
@@ -289,20 +298,16 @@ Sample json here...
 | transactionId                              | String    | TransactionID              | Required | "C1433"                                                              |                                                                                |
 | transactionMethodTypeCode(update key name) | Integer   | Method of Transaction Abbr | Required | 8                                                                    | 1:In person 7:Other 8:Online 9:Virtual currency ATM  was "transactionTypeCode" |
 | transactionMethodTypeOther(new)            | String    |                            | Optional | "Whatsapp"                                                           | If transactionMethodTypeCode is 7 must provide this value                      |
-| clientToPlatformHash                       | String    | Transaction hash           | Required | "0x678011e2833e24628dcc58213fa176a2069607853a74d627a24ca05351d1a818" |                                                                                |
-| clientToPlatformSendingWallet              | String    | Address                    | Required | "0xeadc0397ceded9abfbd70ba7625db03067e9cb0c"                         |                                                                                |
-| clientToPlatformReceivingWallet            | String    | Address                    | Required | "0x780Bb33836f0DeC4138c39348979EEC739757D6"                          |                                                                                |
 | conductorIndicator                         | Integer   | conductorIndicator         | Required | 0                                                                    | 0 false, 1 true                                                                |
 | onBehalfIndicator                          | Integer   | onBehalfIndicator          | Required | 0                                                                    | 0 false, 1 true                                                                |
-| baseCurrency                               | String    | Digital Currency           | Required | "USDT"                                                               |                                                                                |
 | qty                                        | String    | Total Crypto Amount        | Required | "61215.320000"                                                       |                                                                                |
-| baseCurrencyCanadianExchangeRate           | String    | Price Per Token            | Required | "1.3236000000"                                                       |                                                                                |
 | totalValueInCad                            | String    | Value in CAD               | Required | "81024.600000"                                                       |                                                                                |
 | deviceTypeCode(new)                        | Integer   |                            | Optional | 3                                                                    | 1 Computer/Laptop,2 Mobile phone,3 Tablet,4 Other                              |
 | deviceTypeOther(new)                       | String    |                            | Optional |                                                                      | if deviceTypeCode is 4, must provide this value                                |
 | deviceIdentificationNumber(new)            | String    |                            | Optional | "03e73331cd0f94093a4bb22dfdb3baee"                                   |                                                                                |
 | deviceIpAddress(new)                       | String    |                            | Optional | "24.16.223.12"                                                       |                                                                                |
 | transactionTime                            | timestamp |                            | Required | "1646191191000"                                                      | Transaction time for this record, pass the value to api with 13 digits         |
+| otcRechargeStartActionsList(new)           | JsonArray |                            | Required | [{}]                                                                 | See StartAction table below                                                    |
 | otcRechargeCompleteActionsList             | JsonArray |                            | Required | [{}]                                                                 | See CompleteAction table below                                                 |
 | otcOriginatorInfo                          | JsonArray |                            | Optional | [{}],if conductorIndicator value is 1, must provide this arrayList   | See otcOriginatorInfo table below                                              |
 | otcOriginatorBehalfInfo                    | JsonArray |                            | Optional | [{}],if onBehalfIndicator value is 1, must provide this arrayList    | See otcOriginatorBehalfInfo table below                                        |
@@ -327,6 +332,18 @@ Sample json here...
 | accountTypeCode                     | Integer |                         | NO       | Required | 1                                                                    | 1 Personal 2 Business 3 Trust 5 Casino 4 Other        |
 | accountTypeOther                    | String  |                         | NO       | Optional | "Corporate"                                                          | If type code is 4, must provide this value            |  
 | fiatCurrency                        | String  | Fiat Currency           | NO       | Required | "CAD"                                                                |                                                       |
+
+#### StartAction
+
+| Name                             | Type   | Salesforce Key   | Required | Example                                                              | Description |
+|----------------------------------|--------|------------------|----------|----------------------------------------------------------------------|-------------|
+| clientToPlatformHash             | String | Transaction Hash | Required | "0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d2468c" |             |
+| clientToPlatformSendingWallet    | String | Address          | Required | "0x780bb33836f0bdec4138c39348979eec739757d6"                         |             |
+| clientToPlatformReceivingWallet  | String | Address          | Required | "0xedac0397ceded9abfbd70ba7625db03067e9cb0c"                         |             |
+| baseCurrency                     | String |                  | Required | "USDT"                                                               |             |
+| baseCurrencyCanadianExchangeRate | String |                  | Required | "1.235680"                                                           |             |
+| subAmount                        | String |                  | Required | "61325.000000"                                                       |             |
+
 
 
 #### otcOriginatorInfo
@@ -402,20 +419,25 @@ Sample json here, crypto-crypto example 1,conductorIndicator is 1 and onbehalfIn
     "transactionId":"C1488",
     "transactionMethodTypeCode":7,
     "transactionMethodTypeOther":"WhatsApp",
-    "clientToPlatformHash":"0x678011e2833e24628dcc58213fa176a2069607853a74d627a24ca05351d1a999",
-    "clientToPlatformSendingWallet":"0xeadc0397ceded9abfbd70ba7625db03067e9cb0c",
-    "clientToPlatformReceivingWallet":"0x780Bb33836f0DeC4138c39348979EEC739757D6",
     "conductorIndicator":1,
     "onBehalfIndicator":0,
-    "baseCurrency":"USDT",
     "qty":"888888.320000",
-    "baseCurrencyCanadianExchangeRate":"1.3236000000",
     "totalValueInCad":"81024.600000",
     "deviceTypeCode": 3,
     "deviceTypeOther": "",
     "deviceIdentificationNumber": "03e73331cd0f94093a4bb22dfdb3baee",
     "deviceIpAddress": "24.16.223.12",
     "transactionTime":"1646191191000",
+    "otcRechargeStartActionsList":[
+       {
+             "clientToPlatformHash":"0x780bb33836f0bdec4138c39348979eec739757d6",
+             "clientToPlatformSendingWallet":"0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d246673",
+             "clientToPlatformReceivingWallet":"0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d241111",
+             "baseCurrency:"USDT",
+             "baseCurrencyCanadianExchangeRate":1.23450000",
+             "subAmount":"61215.320000"
+       }
+    ],
     "otcRechargeCompleteActionsList":[
        {
              "dispositionTypeCode":17,
@@ -471,21 +493,33 @@ Sample json here, crypto-crypto example 2,conductorIndicator is 1 and onbehalfIn
     "otcAccountNumber":"C1234",
     "transactionId":"C1469",
     "transactionMethodTypeCode":8,
-    //if exists multiple, use "/" separate
-    "clientToPlatformHash":"0x678011e2833e24628dcc58213fa176a2069607853a74d627a24ca05351d1a308/xxxxxxx",
-    "clientToPlatformSendingWallet":"0xeadc0397ceded9abfbd70ba7625db03067e9cb0c/xxxxxxx",
-    "clientToPlatformReceivingWallet":"0x780Bb33836f0DeC4138c39348979EEC739757D6/xxxxxxx",
     "conductorIndicator":1,
     "onBehalfIndicator":1,
-    "baseCurrency":"USDT",
     "qty":"61215.320000",
-    "baseCurrencyCanadianExchangeRate":"1.3236000000",
     "totalValueInCad":"81024.600000",
     "deviceTypeCode": 3,
     "deviceTypeOther": "",
     "deviceIdentificationNumber": "03e73331cd0f94093a4bb22dfdb3baee",
     "deviceIpAddress": "24.16.223.12",
     "transactionTime":"1646191191000",
+    "otcRechargeStartActionsList":[
+       {
+             "clientToPlatformHash":"0x780bb33836f0bdec4138c39348979eec739757d6",
+             "clientToPlatformSendingWallet":"0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d246673",
+             "clientToPlatformReceivingWallet":"0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d241111",
+             "baseCurrency:"USDT",
+             "baseCurrencyCanadianExchangeRate":1.23450000",
+             "subAmount":"61215.320000"
+       },
+       {
+             "clientToPlatformHash":"0x780bb33836f0bdec4138c39348979eec739757d6",
+             "clientToPlatformSendingWallet":"0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d246673",
+             "clientToPlatformReceivingWallet":"0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d241111",
+             "baseCurrency:"USDT",
+             "baseCurrencyCanadianExchangeRate":1.23450000",
+             "subAmount":"31215.320000"
+       },
+    ],
     "otcRechargeCompleteActionsList":[
        {
              "dispositionTypeCode":11,
@@ -521,6 +555,7 @@ Sample json here, crypto-crypto example 2,conductorIndicator is 1 and onbehalfIn
             "idNum":"G51213456",
             "identificationJurisdictionCountryCode":"CN",
             "identificationJurisdictionProvinceCode":"Unknown"
+            
         }
     ],
     "otcOriginatorBehalfInfo":[]
@@ -531,21 +566,25 @@ Sample json here, crypto-fiat example 3,conductorIndicator is 0 and onbehalfIndi
     "otcAccountNumber":"C1234",
     "transactionId":"C1470",
     "transactionMethodTypeCode":8,
-    //if exists multiple, use "/" separate
-    "clientToPlatformHash":"0x678011e2833e24628dcc58213fa176a2069607853a74d627a24ca05351d1a308/0x678011e2833e24628dcc58213fa176a2069607853a74d627a24ca05351d1a307",
-    "clientToPlatformSendingWallet":"0xeadc0397ceded9abfbd70ba7625db03067e9cb0c/0xeadc0397ceded9abfbd70ba7625db03067e9cb0A",
-    "clientToPlatformReceivingWallet":"0x780Bb33836f0DeC4138c39348979EEC739757D6/0x780Bb33836f0DeC4138c39348979EEC739757D9",
     "conductorIndicator":0,
     "onBehalfIndicator":0,
-    "baseCurrency":"USDT",
     "qty":"61215.320000",
-    "baseCurrencyCanadianExchangeRate":"1.3236000000",
     "totalValueInCad":"81024.600000",
     "deviceTypeCode": 3,
     "deviceTypeOther": "",
     "deviceIdentificationNumber": "03e73331cd0f94093a4bb22dfdb3baee",
     "deviceIpAddress": "24.16.223.12",
     "transactionTime":"1646191191000",
+    "otcRechargeStartActionsList":[
+       {
+             "clientToPlatformHash":"0x780bb33836f0bdec4138c39348979eec739757d6",
+             "clientToPlatformSendingWallet":"0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d246673",
+             "clientToPlatformReceivingWallet":"0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d241111",
+             "baseCurrency:"USDT",
+             "baseCurrencyCanadianExchangeRate":1.23450000",
+             "subAmount":"61215.320000"
+       }
+    ],
     "otcRechargeCompleteActionsList":[
        {
              "dispositionTypeCode":17,
