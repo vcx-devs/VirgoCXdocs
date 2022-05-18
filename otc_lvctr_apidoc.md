@@ -357,8 +357,6 @@ Sample json here...
 | firstName                              | String  | First Name                    | Required   | NO        | "Adam"                               |                                                         |
 | middleName                             | String  | Middle Name                   | Optional   | NO        |                                      |                                                         |
 | lastName                               | String  | Last Name                     | Required   | NO        | "Cai"                                |                                                         |
-| userName(new)                          | String  |                               | Optional   | Optional  | "patrick.wang"                       |                                                         |
-| email(new)                             | String  |                               | Required   | Required  | "patrick.wang@virgocx.ca"            |                                                         |
 | unitNum                                | String  | Unit Number                   | Optional   | Optional  |                                      |                                                         |
 | buildingNum                            | String  | Building Number               | Required   | Required  | "45"                                 |                                                         |
 | streetAddress                          | String  | Street Address                | Required   | Required  | "Sheppard Ave"                       |                                                         |
@@ -467,8 +465,6 @@ Sample json here, crypto-crypto example 1,conductorIndicator is 1 and onbehalfIn
             "perOrEntity":1,
             "firstName":"Patrick",
             "lastName":"Wang",
-            "userName":"patrick.wang",
-            "email":"patrick.wang@virgocx.ca",
             "buildingNum":"45",
             "streetAddress":"Sheppard Ave",
             "city":"Toronto",
@@ -540,8 +536,6 @@ Sample json here, crypto-crypto example 2,conductorIndicator is 1 and onbehalfIn
         {
             "perOrEntity":2,
             "entityName":"VirgocxCx LLC.",
-            "userName":"patrick.wang",
-            "email":"patrick.wang@virgocx.ca",
             "buildingNum":"45",
             "streetAddress":"Sheppard Ave",
             "city":"Toronto",
