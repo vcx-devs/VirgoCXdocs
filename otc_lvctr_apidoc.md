@@ -292,25 +292,26 @@ Sample json here...
 
 #### DATA:
 
-| Name                                       | Type      | Salesforce Key             | Required | Example                                                              | Description                                                                    |
-|--------------------------------------------|-----------|----------------------------|----------|----------------------------------------------------------------------|--------------------------------------------------------------------------------|
-| otcAccountNumber                           | String    | OTC Account #              | Required | "C1234"                                                              |                                                                                |
-| transactionId                              | String    | TransactionID              | Required | "C1433"                                                              |                                                                                |
-| transactionMethodTypeCode(update key name) | Integer   | Method of Transaction Abbr | Required | 8                                                                    | 1:In person 7:Other 8:Online 9:Virtual currency ATM  was "transactionTypeCode" |
-| transactionMethodTypeOther(new)            | String    |                            | Optional | "Whatsapp"                                                           | If transactionMethodTypeCode is 7 must provide this value                      |
-| conductorIndicator                         | Integer   | conductorIndicator         | Required | 0                                                                    | 0 false, 1 true                                                                |
-| onBehalfIndicator                          | Integer   | onBehalfIndicator          | Required | 0                                                                    | 0 false, 1 true                                                                |
-| qty                                        | String    | Total Crypto Amount        | Required | "61215.320000"                                                       |                                                                                |
-| totalValueInCad                            | String    | Value in CAD               | Required | "81024.600000"                                                       |                                                                                |
-| deviceTypeCode(new)                        | Integer   |                            | Optional | 3                                                                    | 1 Computer/Laptop,2 Mobile phone,3 Tablet,4 Other                              |
-| deviceTypeOther(new)                       | String    |                            | Optional |                                                                      | if deviceTypeCode is 4, must provide this value                                |
-| deviceIdentificationNumber(new)            | String    |                            | Optional | "03e73331cd0f94093a4bb22dfdb3baee"                                   |                                                                                |
-| deviceIpAddress(new)                       | String    |                            | Optional | "24.16.223.12"                                                       |                                                                                |
-| transactionTime                            | timestamp |                            | Required | "1646191191000"                                                      | Transaction time for this record, pass the value to api with 13 digits         |
-| otcRechargeStartActionsList(new)           | JsonArray |                            | Required | [{}]                                                                 | See StartAction table below                                                    |
-| otcRechargeCompleteActionsList             | JsonArray |                            | Required | [{}]                                                                 | See CompleteAction table below                                                 |
-| otcOriginatorInfo                          | JsonArray |                            | Optional | [{}],if conductorIndicator value is 1, must provide this arrayList   | See otcOriginatorInfo table below                                              |
-| otcOriginatorBehalfInfo                    | JsonArray |                            | Optional | [{}],if onBehalfIndicator value is 1, must provide this arrayList    | See otcOriginatorBehalfInfo table below                                        |
+| Name                                       | Type      | Salesforce Key             | Required | Example                                                            | Description                                                                    |
+|--------------------------------------------|-----------|----------------------------|----------|--------------------------------------------------------------------|--------------------------------------------------------------------------------|
+| otcAccountNumber                           | String    | OTC Account #              | Required | "C1234"                                                            |                                                                                |
+| transactionId                              | String    | TransactionID              | Required | "C1433"                                                            |                                                                                |
+| transactionMethodTypeCode(update key name) | Integer   | Method of Transaction Abbr | Required | 8                                                                  | 1:In person 7:Other 8:Online 9:Virtual currency ATM  was "transactionTypeCode" |
+| transactionMethodTypeOther(new)            | String    |                            | Optional | "Whatsapp"                                                         | If transactionMethodTypeCode is 7 must provide this value                      |
+| conductorIndicator                         | Integer   | conductorIndicator         | Required | 0                                                                  | 0 false, 1 true                                                                |
+| onBehalfIndicator                          | Integer   | onBehalfIndicator          | Required | 0                                                                  | 0 false, 1 true                                                                |
+| qty                                        | String    | Total Crypto Amount        | Required | "61215.320000"                                                     |                                                                                |
+| totalValueInCad                            | String    | Value in CAD               | Required | "81024.600000"                                                     |                                                                                |
+| deviceTypeCode(new)                        | Integer   |                            | Optional | 3                                                                  | 1 Computer/Laptop,2 Mobile phone,3 Tablet,4 Other                              |
+| deviceTypeOther(new)                       | String    |                            | Optional |                                                                    | if deviceTypeCode is 4, must provide this value                                |
+| deviceIdentificationNumber(new)            | String    |                            | Optional | "03e73331cd0f94093a4bb22dfdb3baee"                                 |                                                                                |
+| deviceIpAddress(new)                       | String    |                            | Optional | "24.16.223.12"                                                     |                                                                                |
+| transactionTime                            | timestamp |                            | Required | "1646191191000"                                                    | Transaction time for this record, pass the value to api with 13 digits         |
+| institutionCode(new)                       | Integer   |                            | Required | 1                                                                  | virgocx 1,direct Inc 2                                                         |
+| otcRechargeStartActionsList(new)           | JsonArray |                            | Required | [{}]                                                               | See StartAction table below                                                    |
+| otcRechargeCompleteActionsList             | JsonArray |                            | Required | [{}]                                                               | See CompleteAction table below                                                 |
+| otcOriginatorInfo                          | JsonArray |                            | Optional | [{}],if conductorIndicator value is 1, must provide this arrayList | See otcOriginatorInfo table below                                              |
+| otcOriginatorBehalfInfo                    | JsonArray |                            | Optional | [{}],if onBehalfIndicator value is 1, must provide this arrayList  | See otcOriginatorBehalfInfo table below                                        |
 #### CompleteAction
 
 | Name                                | Type    | Salesforce Key          | Crypto   | Fiat     | Example                                                              | Description                                           |
@@ -428,6 +429,7 @@ Sample json here, crypto-crypto example 1,conductorIndicator is 1 and onbehalfIn
     "deviceIdentificationNumber": "03e73331cd0f94093a4bb22dfdb3baee",
     "deviceIpAddress": "24.16.223.12",
     "transactionTime":"1646191191000",
+    "institutionCode":1,
     "otcRechargeStartActionsList":[
        {
              "clientToPlatformHash":"0x780bb33836f0bdec4138c39348979eec739757d6",
@@ -502,6 +504,7 @@ Sample json here, crypto-crypto example 2,conductorIndicator is 1 and onbehalfIn
     "deviceIdentificationNumber": "03e73331cd0f94093a4bb22dfdb3baee",
     "deviceIpAddress": "24.16.223.12",
     "transactionTime":"1646191191000",
+    "institutionCode":1,
     "otcRechargeStartActionsList":[
        {
              "clientToPlatformHash":"0x780bb33836f0bdec4138c39348979eec739757d6",
@@ -575,6 +578,7 @@ Sample json here, crypto-fiat example 3,conductorIndicator is 0 and onbehalfIndi
     "deviceIdentificationNumber": "03e73331cd0f94093a4bb22dfdb3baee",
     "deviceIpAddress": "24.16.223.12",
     "transactionTime":"1646191191000",
+    "institutionCode":"2",
     "otcRechargeStartActionsList":[
        {
              "clientToPlatformHash":"0x780bb33836f0bdec4138c39348979eec739757d6",
