@@ -85,14 +85,14 @@ For example:
 Request time: Mar 23 2022 12:55:54 EST, APIKEY:ABCDE   
 Sign is md5(1648054554ABCDE) -> cb333877936e25aeb33e61a946d24155   
 URL:  
-> otcwordpress.virgocx.org/otcInfo/saveMemberInfo/corporate?timestamp=1648054554&sign=cb333877936e25aeb33e61a946d24155
+> otcwordpress.virgocx.org/v2/otcInfo/saveMemberInfo/corporate?timestamp=1648054554&sign=cb333877936e25aeb33e61a946d24155
 
 ### 1. CREATE Corporate Member Info
 
 <br>
 
 #### URL:
-> otcwordpress.virgocx.org/otcInfo/saveMemberInfo/corporate?timestamp={}&sign={}  
+> otcwordpress.virgocx.org/v2/otcInfo/saveMemberInfo/corporate?timestamp={}&sign={}  
 
 #### METHOD:
 > POST 
@@ -166,7 +166,7 @@ Sample json here...
 <br>
 
 #### URL:
-> otcwordpress.virgocx.org/otcInfo/saveEntityInfo/entityPerson?timestamp={}&sign={}    
+> otcwordpress.virgocx.org/v2/otcInfo/saveEntityInfo/entityPerson?timestamp={}&sign={}    
 
 #### METHOD:
 > POST
@@ -203,7 +203,7 @@ Sample json here...
 <br>
 
 #### URL:
-> otcwordpress.virgocx.org/otcInfo/saveMemberInfo/individual?timestamp={}&sign={}    
+> otcwordpress.virgocx.org/v2/otcInfo/saveMemberInfo/individual?timestamp={}&sign={}    
 
 #### METHOD:
 > POST 
@@ -281,9 +281,9 @@ Sample json here...
 <br>
 
 #### URL:
-> otcwordpress.virgocx.org/otcInfo/saveRechargeInfo/cryptoToCrypto?timestamp={}&sign={}    
+> otcwordpress.virgocx.org/v2/otcInfo/saveRechargeInfo/cryptoToCrypto?timestamp={}&sign={}    
 
-> otcwordpress.virgocx.org/otcInfo/saveRechargeInfo/cryptoToFiat?timestamp={}&sign={}    
+> otcwordpress.virgocx.org/v2/otcInfo/saveRechargeInfo/cryptoToFiat?timestamp={}&sign={}    
 
 #### METHOD:
 > POST 
@@ -431,8 +431,8 @@ Sample json here, crypto-crypto example 1,conductorIndicator is 1 and onbehalfIn
     "otcRechargeStartActionsList":[
        {
              "clientToPlatformHash":"0x780bb33836f0bdec4138c39348979eec739757d6",
-             "clientToPlatformSendingWallet":"0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d246673",
-             "clientToPlatformReceivingWallet":"0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d241111",
+             "clientToPlatformSendingWalletList":["0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d246673"],
+             "clientToPlatformReceivingWalletList":["0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d241111"],
              "baseCurrency:"USDT",
              "baseCurrencyCanadianExchangeRate":1.23450000",
              "subAmount":"61215.320000"
@@ -442,8 +442,8 @@ Sample json here, crypto-crypto example 1,conductorIndicator is 1 and onbehalfIn
        {
              "dispositionTypeCode":17,
              "platformToClientHash":"0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d24987",
-             "platformToClientSendingWallet":"0x780bb33836f0bdec4138c39348979eec739757d6",
-             "platformToClientReceivingWallet":"0xedac0397ceded9abfbd70ba7625db03067e9cb0c",
+             "platformToClientSendingWalletList":["0x780bb33836f0bdec4138c39348979eec739757d6"],
+             "platformToClientReceivingWalletList":["0xedac0397ceded9abfbd70ba7625db03067e9cb0c"],
              "counterCurrency":"USDC",
              "counterCurrencyAmount":"31215.320000",
              "counterCurrencyCanadianExchangeRate":"1.0000000000",
@@ -452,8 +452,8 @@ Sample json here, crypto-crypto example 1,conductorIndicator is 1 and onbehalfIn
        {
              "dispositionTypeCode":17,
              "platformToClientHash":"0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d24987",
-             "platformToClientSendingWallet":"0x780bb33836f0bdec4138c39348979eec739757d6",
-             "platformToClientReceivingWallet":"0xedac0397ceded9abfbd70ba7625db03067e9cb0c",
+             "platformToClientSendingWalletList":["0x780bb33836f0bdec4138c39348979eec739757d6"],
+             "platformToClientReceivingWalletList":["0xedac0397ceded9abfbd70ba7625db03067e9cb0c"],
              "counterCurrency":"USDC",
              "counterCurrencyAmount":"30000.000000",
              "counterCurrencyCanadianExchangeRate":"1.0000000000",
@@ -504,16 +504,16 @@ Sample json here, crypto-crypto example 2,conductorIndicator is 1 and onbehalfIn
     "otcRechargeStartActionsList":[
        {
              "clientToPlatformHash":"0x780bb33836f0bdec4138c39348979eec739757d6",
-             "clientToPlatformSendingWallet":"0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d246673",
-             "clientToPlatformReceivingWallet":"0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d241111",
+             "clientToPlatformSendingWalletList":["0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d246673"],
+             "clientToPlatformReceivingWalletList":["0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d241111"],
              "baseCurrency:"USDT",
              "baseCurrencyCanadianExchangeRate":1.23450000",
              "subAmount":"61215.320000"
        },
        {
              "clientToPlatformHash":"0x780bb33836f0bdec4138c39348979eec739757d6",
-             "clientToPlatformSendingWallet":"0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d246673",
-             "clientToPlatformReceivingWallet":"0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d241111",
+             "clientToPlatformSendingWalletList":["0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d246673"],
+             "clientToPlatformReceivingWalletList":["0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d241111"],
              "baseCurrency:"USDT",
              "baseCurrencyCanadianExchangeRate":1.23450000",
              "subAmount":"31215.320000"
@@ -524,8 +524,8 @@ Sample json here, crypto-crypto example 2,conductorIndicator is 1 and onbehalfIn
              "dispositionTypeCode":11,
              "dispositionTypeOther":"Test case",
              "platformToClientHash":"0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d246673",
-             "platformToClientSendingWallet":"0x780bb33836f0bdec4138c39348979eec739757d6",
-             "platformToClientReceivingWallet":"0xedac0397ceded9abfbd70ba7625db03067e9cb0c",
+             "platformToClientSendingWalletList":["0x780bb33836f0bdec4138c39348979eec739757d6"],
+             "platformToClientReceivingWalletList":["0xedac0397ceded9abfbd70ba7625db03067e9cb0c"],
              "counterCurrency":"USDC",
              "counterCurrencyAmount":"61215.320000",
              "counterCurrencyCanadianExchangeRate":"1.0000000000",
@@ -593,11 +593,11 @@ Sample json here, crypto-fiat example 3,conductorIndicator is 0 and onbehalfIndi
        {
              "dispositionTypeCode":17,
              "platformToClientHash":"0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d246673",
-             "platformToClientSendingWallet":[
+             "platformToClientSendingWalletList":[
                   "0x780bb33836f0bdec4138c39348979eec739757d6",
                   "0x780bb33836f0bdec4138c39348979eec739757d7"
              ]
-             "platformToClientReceivingWallet":[
+             "platformToClientReceivingWalletList":[
                   "0xedac0397ceded9abfbd70ba7625db03067e9cb0c",
                   "0xedac0397ceded9abfbd70ba7625db03067e9cb01"
              ]
