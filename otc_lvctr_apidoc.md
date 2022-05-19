@@ -314,36 +314,36 @@ Sample json here...
 | otcOriginatorBehalfInfo                    | JsonArray |                            | Optional | [{}],if onBehalfIndicator value is 1, must provide this arrayList  | See otcOriginatorBehalfInfo table below                                        |
 #### CompleteAction
 
-| Name                                | Type    | Salesforce Key          | Crypto   | Fiat     | Example                                                              | Description                                           |
-|-------------------------------------|---------|-------------------------|----------|----------|----------------------------------------------------------------------|-------------------------------------------------------|
-| dispositionTypeCode                 | Integer |                         | Required | Required | 17                                                                   | See table provide above                               |
-| dispositionTypeOther                | String  |                         | Optional | Optional | "Test Case"                                                          | If dispositionTypeCode is 11, must provide this value |
-| benefitingUsername(new)             | String  |                         | Optional | Optional | "patrick"                                                            |                                                       |
-| platformToClientHash                | String  | Transaction Hash        | Required | NO       | "0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d2468c" |                                                       |
-| platformToClientSendingWallet       | String  | Address                 | Required | NO       | "0x780bb33836f0bdec4138c39348979eec739757d6"                         |                                                       |
-| platformToClientReceivingWallet     | String  | Address                 | Required | NO       | "0xedac0397ceded9abfbd70ba7625db03067e9cb0c"                         |                                                       |
-| counterCurrency                     | String  | Counter Currency        | Required | NO       | "USDC"                                                               |                                                       |
-| counterCurrencyAmount               | String  | Counter Currency Amount | Required | NO       | "61215.320000",                                                      |                                                       |
-| counterCurrencyCanadianExchangeRate | String  | Current crypto price    | Required | NO       | "1.0000000000"                                                       |                                                       |
-| financialInstitutionNumber          | String  | Institution Number      | NO       | Required | "004"                                                                |                                                       |
-| branchNumber                        | String  | Transit Number          | NO       | Required | "13282"                                                              |                                                       |
-| accountHolderUsername(new)          | String  | Transit Number          | NO       | Optional | "patrick"                                                            |                                                       |
-| accountNumber                       | String  | Account Number          | NO       | Required | "6119164"                                                            |                                                       |
-| accountCurrencyTypeCode             | String  | Fiat Currency           | NO       | Required | "CAD"/"USD"/"EUR"                                                    |                                                       |
-| accountTypeCode                     | Integer |                         | NO       | Required | 1                                                                    | 1 Personal 2 Business 3 Trust 5 Casino 4 Other        |
-| accountTypeOther                    | String  |                         | NO       | Optional | "Corporate"                                                          | If type code is 4, must provide this value            |  
-| fiatCurrency                        | String  | Fiat Currency           | NO       | Required | "CAD"                                                                |                                                       |
+| Name                                | Type      | Salesforce Key          | Crypto   | Fiat     | Example                                                                                   | Description                                           |
+|-------------------------------------|-----------|-------------------------|----------|----------|-------------------------------------------------------------------------------------------|-------------------------------------------------------|
+| dispositionTypeCode                 | Integer   |                         | Required | Required | 17                                                                                        | See table provide above                               |
+| dispositionTypeOther                | String    |                         | Optional | Optional | "Test Case"                                                                               | If dispositionTypeCode is 11, must provide this value |
+| benefitingUsername(new)             | String    |                         | Optional | Optional | "patrick"                                                                                 |                                                       |
+| platformToClientHash                | String    | Transaction Hash        | Required | NO       | "0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d2468c"                      |                                                       |
+| platformToClientSendingWalletList   | JsonArray | Address                 | Required | NO       | "0x780bb33836f0bdec4138c39348979eec739757d6"                                              |                                                       |
+| platformToClientReceivingWalletList | JsonArray | Address                 | Required | NO       | ["0xedac0397ceded9abfbd70ba7625db03067e9cb0c",0xedac0397ceded9abfbd70ba7625db03067e9cb0a] |                                                       |
+| counterCurrency                     | String    | Counter Currency        | Required | NO       | "USDC"                                                                                    |                                                       |
+| counterCurrencyAmount               | String    | Counter Currency Amount | Required | NO       | "61215.320000",                                                                           |                                                       |
+| counterCurrencyCanadianExchangeRate | String    | Current crypto price    | Required | NO       | "1.0000000000"                                                                            |                                                       |
+| financialInstitutionNumber          | String    | Institution Number      | NO       | Required | "004"                                                                                     |                                                       |
+| branchNumber                        | String    | Transit Number          | NO       | Required | "13282"                                                                                   |                                                       |
+| accountHolderUsername(new)          | String    | Transit Number          | NO       | Optional | "patrick"                                                                                 |                                                       |
+| accountNumber                       | String    | Account Number          | NO       | Required | "6119164"                                                                                 |                                                       |
+| accountCurrencyTypeCode             | String    | Fiat Currency           | NO       | Required | "CAD"/"USD"/"EUR"                                                                         |                                                       |
+| accountTypeCode                     | Integer   |                         | NO       | Required | 1                                                                                         | 1 Personal 2 Business 3 Trust 5 Casino 4 Other        |
+| accountTypeOther                    | String    |                         | NO       | Optional | "Corporate"                                                                               | If type code is 4, must provide this value            |  
+| fiatCurrency                        | String    | Fiat Currency           | NO       | Required | "CAD"                                                                                     |                                                       |
 
 #### StartAction
 
-| Name                             | Type   | Salesforce Key   | Required | Example                                                              | Description |
-|----------------------------------|--------|------------------|----------|----------------------------------------------------------------------|-------------|
-| clientToPlatformHash             | String | Transaction Hash | Required | "0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d2468c" |             |
-| clientToPlatformSendingWallet    | String | Address          | Required | "0x780bb33836f0bdec4138c39348979eec739757d6"                         |             |
-| clientToPlatformReceivingWallet  | String | Address          | Required | "0xedac0397ceded9abfbd70ba7625db03067e9cb0c"                         |             |
-| baseCurrency                     | String |                  | Required | "USDT"                                                               |             |
-| baseCurrencyCanadianExchangeRate | String |                  | Required | "1.235680"                                                           |             |
-| subAmount                        | String |                  | Required | "61325.000000"                                                       |             |
+| Name                                     | Type      | Salesforce Key   | Required | Example                                                                                     | Description |
+|------------------------------------------|-----------|------------------|----------|---------------------------------------------------------------------------------------------|-------------|
+| clientToPlatformHash                     | String    | Transaction Hash | Required | "0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d2468c"                        |             |
+| clientToPlatformSendingWalletList(new)   | JsonArray | Address          | Required | "0x780bb33836f0bdec4138c39348979eec739757d6"                                                |             |
+| clientToPlatformReceivingWalletList(new) | JsonArray | Address          | Required | ["0xedac0397ceded9abfbd70ba7625db03067e9cb0c","0xedac0397ceded9abfbd70ba7625db03067e9cb0c"] |             |
+| baseCurrency                             | String    |                  | Required | "USDT"                                                                                      |             |
+| baseCurrencyCanadianExchangeRate         | String    |                  | Required | "1.235680"                                                                                  |             |
+| subAmount                                | String    |                  | Required | "61325.000000"                                                                              |             |
 
 
 
@@ -576,8 +576,14 @@ Sample json here, crypto-fiat example 3,conductorIndicator is 0 and onbehalfIndi
     "otcRechargeStartActionsList":[
        {
              "clientToPlatformHash":"0x780bb33836f0bdec4138c39348979eec739757d6",
-             "clientToPlatformSendingWallet":"0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d246673",
-             "clientToPlatformReceivingWallet":"0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d241111",
+             "clientToPlatformSendingWalletList":[
+                  "0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d246673",
+                  "0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d246674"
+             ],
+             "clientToPlatformReceivingWalletList":[
+                  "0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d241111",
+                  "0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d241112"
+             ]
              "baseCurrency:"USDT",
              "baseCurrencyCanadianExchangeRate":1.23450000",
              "subAmount":"61215.320000"
@@ -587,8 +593,14 @@ Sample json here, crypto-fiat example 3,conductorIndicator is 0 and onbehalfIndi
        {
              "dispositionTypeCode":17,
              "platformToClientHash":"0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d246673",
-             "platformToClientSendingWallet":"0x780bb33836f0bdec4138c39348979eec739757d6",
-             "platformToClientReceivingWallet":"0xedac0397ceded9abfbd70ba7625db03067e9cb0c",
+             "platformToClientSendingWallet":[
+                  "0x780bb33836f0bdec4138c39348979eec739757d6",
+                  "0x780bb33836f0bdec4138c39348979eec739757d7"
+             ]
+             "platformToClientReceivingWallet":[
+                  "0xedac0397ceded9abfbd70ba7625db03067e9cb0c",
+                  "0xedac0397ceded9abfbd70ba7625db03067e9cb01"
+             ]
              "counterCurrency":"USDC",
              "counterCurrencyAmount":"61215.320000",
              "counterCurrencyCanadianExchangeRate":"1.0000000000",
