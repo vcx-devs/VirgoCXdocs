@@ -116,7 +116,7 @@ URL:
 | postalCode                             | String  | Postal Code                | Required | A1E4S2                    | A1E4S2(CA)/60606(US)                                                                                                 | 
 | telephoneNumber                        | String  | Phone                      | Required | 3128786784                || 
 | telephoneExtension(new)                | String  |                            | Optional |                           ||
-| businessNature(new)                    | String  |                            | Optional |                           ||
+| businessNature(new)                    | String  |                            | Required |                           ||
 | registrationNumber                     | String  | Register Number            | Required | ON51222012                ||
 | registrationJurisdictionCountryCode    | String  | Registration Country Abbr  | Required | CA                        || 
 | registrationJurisdictionProvinceCode   | String  | Registration Province Abbr | Required | ON                        | If don't have specific value, use "Unknown"                                                                          | 
