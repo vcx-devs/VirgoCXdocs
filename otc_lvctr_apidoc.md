@@ -333,6 +333,8 @@ Sample json here...
 | accountTypeCode                     | Integer   |                         | NO       | Required | 1                                                                                         | 1 Personal 2 Business 3 Trust 5 Casino 4 Other        |
 | accountTypeOther                    | String    |                         | NO       | Optional | "Corporate"                                                                               | If type code is 4, must provide this value            |  
 | fiatCurrency                        | String    | Fiat Currency           | NO       | Required | "CAD"                                                                                     |                                                       |
+| referenceNumber(new)                | String    |                         | NO       | Optional | "123456789"                                                                               |                                                       |
+| otherRelatedNumber(new)             | String    |                         | NO       | Optional | "WF123456789"                                                                             | If dispositionTypeCode is 25, must provide this value |
 
 #### StartAction
 
@@ -607,7 +609,7 @@ Sample json here, crypto-fiat example 3,conductorIndicator is 0 and onbehalfIndi
              "benefitingUsername":"patrick"
        },
        {
-             "dispositionTypeCode":24,
+             "dispositionTypeCode":25,
              "financialInstitutionNumber":"004",
              "branchNumber":"13282",
              "accountHolderUsername":"patrick",
@@ -615,7 +617,9 @@ Sample json here, crypto-fiat example 3,conductorIndicator is 0 and onbehalfIndi
              "accountCurrencyTypeCode":"CAD",
              "accountTypeCode":1,
              "fiatCurrency":"CAD",
-             "benefitingUsername":"patrick"
+             "benefitingUsername":"patrick",
+             "referenceNumber":"123455",
+             "otherRelatedNumber":"WF1234455612"
        }
     ],
     "otcOriginatorInfo":[],
