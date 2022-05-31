@@ -344,7 +344,7 @@ Sample json here...
 | clientToPlatformSendingWalletList(new)   | JsonArray | Address          | Required | "0x780bb33836f0bdec4138c39348979eec739757d6"                                                |                    |
 | clientToPlatformReceivingWalletList(new) | JsonArray | Address          | Required | ["0xedac0397ceded9abfbd70ba7625db03067e9cb0c","0xedac0397ceded9abfbd70ba7625db03067e9cb0c"] |                    |
 | baseCurrency                             | String    |                  | Required | "USDT"                                                                                      |                    |
-| realTimeStamp(new)                       | String    |                  | Optional | "1646191191000"                                                                             | 13 digital numbers |
+| subTransactionTime(new)                  | String    |                  | Optional | "1646191191000"                                                                             | 13 digital numbers |
 | baseCurrencyCanadianExchangeRate         | String    |                  | Required | "1.235680"                                                                                  |                    |
 | subAmount                                | String    |                  | Required | "61325.000000"                                                                              |                    |
 
@@ -437,7 +437,7 @@ Sample json here, crypto-crypto example 1,conductorIndicator is 1 and onbehalfIn
              "clientToPlatformSendingWalletList":["0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d246673"],
              "clientToPlatformReceivingWalletList":["0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d241111"],
              "baseCurrency":"USDT",
-             "realTimeStamp":"1646191191000",
+             "subTransactionTime":"1646191191000",
              "baseCurrencyCanadianExchangeRate":"1.23450000",
              "subAmount":"61215.320000"
        }
@@ -511,7 +511,7 @@ Sample json here, crypto-crypto example 2,conductorIndicator is 1 and onbehalfIn
              "clientToPlatformSendingWalletList":["0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d246673"],
              "clientToPlatformReceivingWalletList":["0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d241111"],
              "baseCurrency":"USDT",
-             "realTimeStamp":"1646191191000",
+             "subTransactionTime":"1646191191000",
              "baseCurrencyCanadianExchangeRate":"1.23450000",
              "subAmount":"61215.320000"
        },
@@ -591,7 +591,7 @@ Sample json here, crypto-fiat example 3,conductorIndicator is 0 and onbehalfIndi
                   "0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d241112"
              ]
              "baseCurrency":"USDT",
-             "realTimeStamp":"1646191191000",
+             "subTransactionTime":"1646191191000",
              "baseCurrencyCanadianExchangeRate":"1.23450000",
              "subAmount":"61215.320000"
        }
