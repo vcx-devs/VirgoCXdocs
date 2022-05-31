@@ -338,14 +338,15 @@ Sample json here...
 
 #### StartAction
 
-| Name                                     | Type      | Salesforce Key   | Required | Example                                                                                     | Description |
-|------------------------------------------|-----------|------------------|----------|---------------------------------------------------------------------------------------------|-------------|
-| clientToPlatformHash                     | String    | Transaction Hash | Required | "0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d2468c"                        |             |
-| clientToPlatformSendingWalletList(new)   | JsonArray | Address          | Required | "0x780bb33836f0bdec4138c39348979eec739757d6"                                                |             |
-| clientToPlatformReceivingWalletList(new) | JsonArray | Address          | Required | ["0xedac0397ceded9abfbd70ba7625db03067e9cb0c","0xedac0397ceded9abfbd70ba7625db03067e9cb0c"] |             |
-| baseCurrency                             | String    |                  | Required | "USDT"                                                                                      |             |
-| baseCurrencyCanadianExchangeRate         | String    |                  | Required | "1.235680"                                                                                  |             |
-| subAmount                                | String    |                  | Required | "61325.000000"                                                                              |             |
+| Name                                     | Type      | Salesforce Key   | Required | Example                                                                                     | Description        |
+|------------------------------------------|-----------|------------------|----------|---------------------------------------------------------------------------------------------|--------------------|
+| clientToPlatformHash                     | String    | Transaction Hash | Required | "0xcefd143db7a1c20e49cebf7bfa75ac7f1d4779e38ed3e011da38379b89d2468c"                        |                    |
+| clientToPlatformSendingWalletList(new)   | JsonArray | Address          | Required | "0x780bb33836f0bdec4138c39348979eec739757d6"                                                |                    |
+| clientToPlatformReceivingWalletList(new) | JsonArray | Address          | Required | ["0xedac0397ceded9abfbd70ba7625db03067e9cb0c","0xedac0397ceded9abfbd70ba7625db03067e9cb0c"] |                    |
+| baseCurrency                             | String    |                  | Required | "USDT"                                                                                      |                    |
+| realTimeStamp(new)                       | String    |                  | Optional | "1646191191000"                                                                             | 13 digital numbers |
+| baseCurrencyCanadianExchangeRate         | String    |                  | Required | "1.235680"                                                                                  |                    |
+| subAmount                                | String    |                  | Required | "61325.000000"                                                                              |                    |
 
 
 
